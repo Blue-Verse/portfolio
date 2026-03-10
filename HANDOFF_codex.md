@@ -2,10 +2,11 @@
 
 ## 현재 상태
 
-- 포트폴리오 사이트를 2차 전면 재설계 완료
+- 포트폴리오 사이트 2차 전면 재설계 및 원격 배포 완료
 - `index.html` 단일 소개 페이지 + `about.html` 팀 소개 페이지 구조로 확장
 - `market-intel` 기준 분석 프로젝트 12개 전체 반영
 - 기존 `js/main.js` 구조 제거 후 `site-shell.js`, `portfolio.js`, `about.js`, `projects-data.js`로 분리
+- 원격 반영 커밋: `ba9a019` (`feat: redesign portfolio and add about page`)
 
 ## 이번 버전 핵심 변경
 
@@ -38,7 +39,7 @@
 
 - 로컬 `C:\Users\horim\GitHub\blue-verse-portfolio\.git`는 정상 저장소가 아니므로 fresh clone 경로로 publish
 - 대상 원격: `https://github.com/Blue-Verse/portfolio`
-- 복사 대상은 사이트 결과물과 `_codex` 문서만 선택적으로 반영
+- 복사 대상은 사이트 결과물과 `_codex` 문서, `.github/workflows/deploy.yml`만 선택적으로 반영
 
 ## 다음 세션 참고
 

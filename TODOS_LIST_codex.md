@@ -10,5 +10,5 @@
 - [x] `site-shell.js`, `portfolio.js`, `about.js`로 상호작용 모듈 분리
 - [x] 상세 모달 deep-link (`?project=<slug>`) 지원
 - [x] 로컬 정적 서버와 headless 브라우저로 시각 검증
-- [ ] fresh clone 경로로 원격 저장소 반영
-- [ ] changelog 최종 기록
+- [x] fresh clone 경로로 원격 저장소 반영
+- [x] changelog 최종 기록
