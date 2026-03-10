@@ -1,5 +1,64 @@
 # HANDOFF_codex
 
+## UI-UX Pro Max 전체 리디자인 결과
+
+- 새 요청 범위: `ui-ux-pro-max` 기준으로 사이트 전체를 다시 설계한다.
+- `ui-ux-pro`라는 정확한 스킬은 세션에 없어서 가장 가까운 `ui-ux-pro-max` 결과를 기준으로 방향을 고정했다.
+- 디자인 시스템 결과는 `Portfolio Grid + Liquid Glass`였고, 실제 구현은 이를 더 절제한 "편집형 구축 사례 라이브러리" 방향으로 변환했다.
+- 메인 페이지는 `Hero -> 대표 사례 3건 -> 프로젝트 라이브러리 -> 작업 방식 -> CTA` 구조로 다시 짰다.
+- About 페이지는 `Team Thesis -> Positioning Band -> Capability Cards -> Timeline -> Coverage -> CTA` 구조로 다시 짰다.
+- CSS는 `styles.css` import entry만 남기고 `base.css`, `shell.css`, `portfolio.css`, `about.css`로 분리했다.
+- JS는 `project-shared.js`, `project-library.js`, `project-modal.js`, `portfolio.js`, `about.js`, `site-shell.js`로 역할을 나눴다.
+- 모바일에서는 메뉴 버튼을 도입했고, 첫 화면 과밀도를 줄이기 위해 보조 CTA와 일부 보조 증거를 숨겼다.
+
+## 이번 세션 주요 파일
+
+- `index.html`
+- `about.html`
+- `css/styles.css`
+- `css/base.css`
+- `css/shell.css`
+- `css/portfolio.css`
+- `css/about.css`
+- `js/project-shared.js`
+- `js/project-library.js`
+- `js/project-modal.js`
+- `js/portfolio.js`
+- `js/about.js`
+- `js/site-shell.js`
+
+## 이번 세션 검증 메모
+
+1. 로컬 정적 서버 기준 응답 200:
+   - `index.html`
+   - `about.html`
+   - `css/styles.css`
+   - `css/base.css`
+   - `css/shell.css`
+   - `css/portfolio.css`
+   - `css/about.css`
+   - `js/portfolio.js`
+   - `js/about.js`
+   - `js/project-library.js`
+   - `js/project-modal.js`
+   - `js/project-shared.js`
+2. Edge headless `--dump-dom` 기준 동적 렌더 확인:
+   - `Flagship Case`
+   - `승인·규제·정합성`
+   - `한국 시장`
+   - `협업은 보통 네 단계로 진행합니다`
+3. 최신 캡처:
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-uiux-redesign-pass\index-top-v2.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-uiux-redesign-pass\about-top-v2.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-uiux-redesign-pass\index-mobile-v2.png`
+
+## UI-UX Pro Max 리디자인 세션 메모
+
+- 새 요청 범위: `ui-ux-pro-max` 기준으로 사이트 전체를 다시 리디자인한다.
+- 이번 세션은 기존 수선이 아니라, 섹션 구조와 시각 시스템을 한 단계 더 큰 폭으로 재조정하는 작업이다.
+- 계획상 CSS를 `base/shell/page` 단위로 분리하고, 메인 페이지는 case-study library 구조로, About은 thesis + matrix + timeline 구조로 바꾼다.
+- 구현 전 단계에서 `_codex` 설계 문서를 이번 범위 기준으로 전면 갱신했다.
+
 ## 오케스트레이터 카피/레이아웃 정리 세션 메모
 
 - 새 요청 범위: `orchestrator` 기준으로 카피와 레이아웃을 다시 다듬고, 첫 화면 과밀도와 카드 위계를 낮춘다.

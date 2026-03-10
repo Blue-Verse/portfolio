@@ -24,13 +24,12 @@ function renderAboutHeroMetrics() {
     const { koreanProjects, featuredProjects, sectors } = getAboutFacts();
     const items = [
         { value: `${PROJECTS.length}개`, label: "전체 사례" },
-        { value: `${koreanProjects}개`, label: "한국 시장 사례" },
+        { value: `${koreanProjects}개`, label: "한국 시장" },
         { value: `${featuredProjects}개`, label: "대표 사례" },
         { value: `${sectors}개`, label: "산업 카테고리" }
     ];
 
     container.innerHTML = `
-        <p class="panel-label">핵심 범위</p>
         <div class="about-hero-metrics-grid">
             ${items
                 .map(
@@ -46,7 +45,7 @@ function renderAboutHeroMetrics() {
     `;
 }
 
-function renderAboutStats() {
+function renderCoverageStats() {
     const container = document.querySelector("#about-stats");
     if (!container) {
         return;
@@ -57,37 +56,37 @@ function renderAboutStats() {
     const items = [
         {
             value: `${PROJECTS.length}개`,
-            label: "분석 완료 프로젝트",
-            description: "시장과 산업이 다른 실전 사례를 한 데이터 모델로 정리했습니다."
+            label: "구축 사례",
+            description: "전체 프로젝트를 한 라이브러리 구조로 정리했습니다."
         },
         {
             value: `${koreanProjects}개`,
-            label: "한국 시장 사례",
-            description: "핀테크와 헬스케어 중심의 실무형 프로젝트를 가장 두텁게 보유하고 있습니다."
+            label: "한국 실무형 사례",
+            description: "핀테크와 헬스케어 중심의 실무형 구조를 두텁게 다뤘습니다."
         },
         {
             value: `${globalProjects}개`,
-            label: "글로벌/해외 확장 사례",
-            description: "글로벌 커뮤니티, 베트남 네트워킹, Web3 플랫폼까지 확장 경험이 있습니다."
+            label: "글로벌/해외 사례",
+            description: "글로벌 모바일 서비스, 베트남 네트워킹, Web3 구조까지 포함합니다."
         },
         {
             value: `${featuredProjects}개`,
             label: "대표 신뢰 사례",
-            description: "처음 보여줄 만한 프로젝트를 별도 선별해 포트폴리오 앞단에 배치했습니다."
+            description: "처음 보여줄 대표 사례를 별도로 선별해 전면 배치했습니다."
         },
         {
             value: `${sectors}개`,
             label: "산업 카테고리",
-            description: "한 분야에 갇히기보다 높은 복잡도 문제를 반복적으로 해결해 왔습니다."
+            description: "산업보다 높은 복잡도 문제를 반복적으로 해결해 왔습니다."
         }
     ];
 
     container.innerHTML = items
         .map(
             (item) => `
-                <article class="stat-card" data-reveal>
+                <article class="coverage-stat surface-panel" data-reveal>
                     <strong>${item.value}</strong>
-                    <p>${item.label}</p>
+                    <span>${item.label}</span>
                     <p>${item.description}</p>
                 </article>
             `
@@ -96,5 +95,5 @@ function renderAboutStats() {
 }
 
 renderAboutHeroMetrics();
-renderAboutStats();
+renderCoverageStats();
 initSiteShell();

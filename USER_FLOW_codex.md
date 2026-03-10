@@ -1,17 +1,20 @@
 # USER_FLOW_codex
 
-## Portfolio Page
+## 메인 페이지 플로우
 
-1. 상단 내비게이션에서 `대표 사례`, `전체 프로젝트`, `About Us` 중 하나로 이동
-2. Hero에서 Blue Verse의 핵심 포지셔닝, 시장 범위, 대표 프로젝트를 바로 인지
-3. 대표 사례 3개를 우선 읽고 신뢰도 판단
-4. 전체 프로젝트 그리드에서 나머지 사례를 이미지/커버와 함께 훑음
-5. 카드 선택 시 상세 레이어에서 문제/해결/성과/스택 확인
-6. 필요 시 `About Us` 또는 GitHub 조직 링크로 이동
+1. Hero에서 팀의 포지션을 읽는다
+2. Trust Ledger에서 범위와 신호를 본다
+3. Flagship Case Study에서 대표 사례 1건을 깊게 본다
+4. Secondary Featured 2건으로 비교 감각을 얻는다
+5. Filterable Project Library에서 관련 사례를 고른다
+6. 상세 modal에서 구현 범위와 지표를 확인한다
+7. About 또는 CTA로 이동한다
 
-## About Us Page
+## About 페이지 플로우
 
-1. 팀 소개와 포지셔닝 확인
-2. 해결하는 문제 유형과 작업 원칙 확인
-3. 연혁/범위/분야 스냅샷 확인
-4. 포트폴리오 페이지로 다시 이동
+1. Team Thesis에서 팀 포지션을 읽는다
+2. Principles Band에서 문제 해결 방식의 성격을 이해한다
+3. Domain Matrix에서 어떤 문제군에 강한지 본다
+4. Collaboration Timeline에서 협업 흐름을 이해한다
+5. Coverage Metrics로 범위를 확인한다
+6. 포트폴리오로 돌아가 관련 사례를 확인한다

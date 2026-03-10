@@ -1,6 +1,10 @@
 export function initSiteShell() {
     document.documentElement.classList.add("js-ready");
+
     const currentPage = document.body.dataset.page;
+    const menuToggle = document.querySelector("[data-menu-toggle]");
+    const menu = document.querySelector("#site-nav");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     document.querySelectorAll("[data-nav-page]").forEach((link) => {
         if (link.dataset.navPage === currentPage) {
@@ -12,8 +16,50 @@ export function initSiteShell() {
         node.textContent = String(new Date().getFullYear());
     });
 
+    if (menuToggle && menu) {
+        function setMenuOpen(isOpen) {
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menu.classList.toggle("is-open", isOpen);
+            document.body.classList.toggle("has-open-menu", isOpen);
+        }
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            setMenuOpen(!isOpen);
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                setMenuOpen(false);
+            });
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!(event.target instanceof Element)) {
+                return;
+            }
+
+            if (!menu.classList.contains("is-open")) {
+                return;
+            }
+
+            if (menu.contains(event.target) || menuToggle.contains(event.target)) {
+                return;
+            }
+
+            setMenuOpen(false);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 860) {
+                setMenuOpen(false);
+            }
+        });
+    }
+
     const revealTargets = document.querySelectorAll("[data-reveal]");
-    if (!revealTargets.length) {
+    if (!revealTargets.length || reduceMotion) {
+        revealTargets.forEach((target) => target.classList.add("is-visible"));
         return;
     }
 
@@ -29,8 +75,8 @@ export function initSiteShell() {
             });
         },
         {
-            threshold: 0.12,
-            rootMargin: "0px 0px -48px 0px"
+            threshold: 0.16,
+            rootMargin: "0px 0px -56px 0px"
         }
     );
 

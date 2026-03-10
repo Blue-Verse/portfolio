@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회사 소개 | Blue Verse</title>
-    <meta name="description" content="Blue Verse의 작업 방식, 포지셔닝, 프로젝트 범위를 소개하는 회사 소개 페이지입니다.">
+    <meta name="description" content="Blue Verse의 포지션, 작업 원칙, 시장 범위를 소개하는 팀 소개 페이지입니다.">
     <meta property="og:title" content="회사 소개 | Blue Verse">
-    <meta property="og:description" content="신뢰가 필요한 디지털 제품을 설계하고 구현하는 Blue Verse 팀 소개">
+    <meta property="og:description" content="운영 복잡도를 제품 구조로 바꾸는 Blue Verse 팀 소개">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/BLUEVERSE.png">
     <meta name="theme-color" content="#eef4fb">
@@ -16,170 +16,174 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="about">
+    <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
     <div class="site-bg" aria-hidden="true">
         <div class="site-glow site-glow-a"></div>
         <div class="site-glow site-glow-b"></div>
         <div class="site-grid"></div>
     </div>
 
-    <header class="site-header">
+    <header class="shell-header">
         <div class="container">
-            <div class="topbar glass-bar">
+            <div class="shell-bar surface-glass">
                 <a class="brand" href="index.html" aria-label="Blue Verse 홈">
                     <img class="brand-symbol" src="assets/1Asset 3@3x.png" alt="Blue Verse 심볼">
                     <div class="brand-copy">
                         <strong>BLUEVERSE</strong>
-                        <span>회사 소개</span>
+                        <span>About</span>
                     </div>
                 </a>
-                <nav class="main-nav" aria-label="주요 탐색">
+                <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
+                    메뉴
+                </button>
+                <nav class="shell-nav" id="site-nav" aria-label="주요 탐색">
                     <a href="index.html#featured-projects" data-nav-page="portfolio">대표 사례</a>
                     <a href="about.html" data-nav-page="about">회사 소개</a>
                     <a href="index.html#delivery-model">작업 방식</a>
-                    <a href="index.html#project-archive">전체 프로젝트</a>
+                    <a href="index.html#project-library">전체 프로젝트</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero section about-hero">
-            <div class="container about-hero-layout">
+    <main id="main-content">
+        <section class="section hero about-hero">
+            <div class="container about-hero-grid">
                 <div class="hero-copy" data-reveal>
-                    <p class="kicker">About Blue Verse</p>
-                    <h1>Blue Verse는 복잡한 운영을<br>제품 구조로 바꾸는 팀입니다.</h1>
+                    <p class="eyebrow">About Blue Verse</p>
+                    <h1>Blue Verse는 운영 복잡도를<br>제품 구조로 바꾸는 팀입니다.</h1>
                     <p class="hero-lead">
-                        우리는 보기 좋은 화면을 만드는 팀이라기보다,
-                        승인 흐름, 권한 체계, 관리자 도구, 데이터 정합성처럼 제품을 무겁게 만드는 문제를 정리하고 구현하는 팀에 가깝습니다.
-                        한국 실무형 프로젝트를 중심으로 핀테크, 헬스케어, B2B 운영도구, 글로벌 서비스까지 범위를 넓혀 왔습니다.
+                        우리는 보기 좋은 화면만 만드는 팀이 아니라, 승인 체계, 권한 경계, 관리자 도구,
+                        데이터 정합성처럼 서비스의 무게중심이 되는 문제를 먼저 정리하고 구현하는 팀에 가깝습니다.
                     </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="index.html#featured-projects">대표 사례 보기</a>
+                        <a class="button button-secondary" href="index.html#project-library">전체 프로젝트 보기</a>
+                    </div>
                 </div>
-                <aside class="about-hero-aside">
-                    <section class="about-intro-card glass-panel" data-reveal>
-                        <p class="panel-label">팀의 작업 원칙</p>
-                        <ul class="proof-list">
-                            <li>운영 흐름과 권한 구조를 먼저 정의합니다</li>
-                            <li>관리자 도구와 예외 처리까지 초기 범위에 포함합니다</li>
-                            <li>성과는 분위기가 아니라 수치와 사례로 설명합니다</li>
+                <aside class="team-glance surface-glass" data-reveal>
+                    <div class="team-glance-copy">
+                        <p class="eyebrow">Team At A Glance</p>
+                        <ul class="team-glance-list">
+                            <li>승인과 권한 구조를 먼저 정의합니다</li>
+                            <li>관리자 도구와 예외 처리까지 초기 범위에 넣습니다</li>
+                            <li>성과는 분위기가 아니라 지표와 사례로 설명합니다</li>
                         </ul>
-                    </section>
-                    <section class="about-hero-metrics glass-panel" id="about-hero-metrics" data-reveal aria-label="핵심 범위"></section>
+                    </div>
+                    <div id="about-hero-metrics" aria-label="핵심 범위"></div>
                 </aside>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section positioning-section">
             <div class="container">
-                <div class="section-head split-head" data-reveal>
+                <div class="positioning-band surface-panel" data-reveal>
                     <div>
-                        <p class="kicker">포지셔닝</p>
-                        <h2>어떤 문제에 강한 팀인가</h2>
+                        <p class="eyebrow">포지셔닝</p>
+                        <h2>복잡도가 높은 서비스일수록 화면보다 구조가 먼저 필요합니다.</h2>
                     </div>
                     <p>
-                        Blue Verse는 단순 소개용 화면보다 운영 복잡도를 가진 제품에 강합니다.
-                        특히 승인, 규제, 역할 권한, 관리자 워크플로우, 데이터 일관성이 중요한 서비스에서 성과를 만들어 왔습니다.
+                        Blue Verse는 서비스가 실제 운영을 버티도록 구조를 세우는 역할에 가깝습니다.
+                        승인 체계, 외부 연동, 운영 백오피스, 멀티액터 흐름처럼 후반에 뒤집기 어려운 영역에서 구현 범위를 끝까지 밀어 넣습니다.
                     </p>
                 </div>
-                <article class="positioning-band glass-panel" data-reveal>
-                    <div>
-                        <p class="panel-label">핵심 포지션</p>
-                        <h3>복잡도가 높은 서비스일수록 화면보다 구조가 먼저 필요합니다.</h3>
-                    </div>
-                    <p>
-                        Blue Verse는 출시 화면을 예쁘게 정리하는 역할보다, 서비스가 실제 운영을 버티도록 구조를 세우는 역할에 가깝습니다.
-                        승인 체계, 운영 도구, 역할 분리, 외부 시스템 연동, 데이터 정합성 같은 영역에서 구현 범위를 끝까지 밀어 넣는 방식으로 일합니다.
-                    </p>
-                </article>
-                <div class="positioning-grid">
-                    <article class="positioning-card" data-reveal>
-                        <h3>승인과 심사가 많은 제품</h3>
-                        <p>전자결재, 문서, 심사, 관리자 도구, 고객/운영자 이중 흐름이 얽힌 제품을 구조화합니다.</p>
+                <div class="capability-grid">
+                    <article class="capability-card surface-panel" data-reveal>
+                        <h3>승인·심사·정합성</h3>
+                        <p>전자결재, 투자심사, 규제 보고, 권한 분리처럼 실수 비용이 큰 흐름에 강합니다.</p>
                     </article>
-                    <article class="positioning-card" data-reveal>
-                        <h3>운영 리스크가 큰 제품</h3>
-                        <p>권한, 보안, 장애 대응, 배포 반복성, 데이터 정합성을 제품 범위 안에서 함께 다룹니다.</p>
+                    <article class="capability-card surface-panel" data-reveal>
+                        <h3>운영·현장·멀티액터</h3>
+                        <p>관리자, 보호자, 기사, 매장 운영자처럼 여러 주체가 동시에 쓰는 구조를 다뤄 왔습니다.</p>
                     </article>
-                    <article class="positioning-card" data-reveal>
-                        <h3>새 기술이 기존 업무와 만나는 제품</h3>
-                        <p>AI, Web3, 실시간 협업, 멀티플랫폼, 국제화가 필요한 경우에도 운영 가능한 구조로 연결합니다.</p>
+                    <article class="capability-card surface-panel" data-reveal>
+                        <h3>AI·Web3·신규 구조</h3>
+                        <p>새 기술을 기능으로만 넣지 않고 기존 업무와 충돌하지 않는 운영 구조로 연결합니다.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section timeline-section">
             <div class="container">
                 <div class="section-head compact" data-reveal>
-                    <p class="kicker">작업 방식</p>
-                    <h2>일하는 방식</h2>
+                    <p class="eyebrow">협업 방식</p>
+                    <h2>협업은 보통 네 단계로 진행합니다</h2>
                 </div>
-                <div class="process-list">
-                    <article class="process-item" data-reveal>
+                <div class="timeline-list">
+                    <article class="timeline-step surface-panel" data-reveal>
                         <span>01</span>
                         <div>
-                            <h3>문제 정의를 먼저 고정합니다</h3>
-                            <p>사용자 화면보다 먼저 역할 구조, 승인 경로, 실패 시나리오, 운영 권한 경계를 정리합니다.</p>
+                            <h3>운영 구조 파악</h3>
+                            <p>누가 승인하고, 누가 예외를 처리하고, 어떤 데이터가 기준이 되는지 먼저 정리합니다.</p>
                         </div>
                     </article>
-                    <article class="process-item" data-reveal>
+                    <article class="timeline-step surface-panel" data-reveal>
                         <span>02</span>
                         <div>
-                            <h3>기술 구조를 실제 업무 흐름과 맞춥니다</h3>
-                            <p>프론트엔드와 백엔드를 따로 설명하지 않고, 실제 업무 흐름이 끊기지 않도록 하나의 제품 경험으로 설계합니다.</p>
+                            <h3>제품 범위 설계</h3>
+                            <p>사용자 화면과 백오피스, 권한, 로그, 외부 연동을 하나의 범위로 맞춥니다.</p>
                         </div>
                     </article>
-                    <article class="process-item" data-reveal>
+                    <article class="timeline-step surface-panel" data-reveal>
                         <span>03</span>
                         <div>
-                            <h3>결과는 지표와 사례로 설명합니다</h3>
-                            <p>프로젝트 품질을 추상어 대신 PR 수, API 수, 화면 수, 플랫폼 수처럼 검증 가능한 수치로 설명합니다.</p>
+                            <h3>구현과 검증</h3>
+                            <p>화면과 기능만이 아니라 실제 운영 단계에서 끊기지 않는지 반복적으로 검증합니다.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-step surface-panel" data-reveal>
+                        <span>04</span>
+                        <div>
+                            <h3>증거 정리</h3>
+                            <p>기간, API, 화면 수, 플랫폼 수, 주요 산출물처럼 다시 설명 가능한 근거를 남깁니다.</p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container about-data-layout">
-                <div class="section-head compact" data-reveal>
-                    <p class="kicker">프로젝트 범위</p>
-                    <h2>프로젝트 범위</h2>
+        <section class="section coverage-section">
+            <div class="container">
+                <div class="section-head split-intro" data-reveal>
+                    <div>
+                        <p class="eyebrow">범위와 증거</p>
+                        <h2>한국 실무형 사례를 중심으로, 글로벌 구조까지 다뤄 왔습니다</h2>
+                    </div>
+                    <p>
+                        핀테크와 헬스케어가 가장 두텁고, 베트남 네트워킹 서비스, 글로벌 모바일 서비스, AI 툴링, Web3까지 범위를 확장해 왔습니다.
+                    </p>
                 </div>
-                <div class="about-stats-grid" id="about-stats"></div>
-                <div class="about-markets-grid">
-                    <section class="about-note" data-reveal>
-                        <p class="panel-label">산업 범위</p>
-                        <h3>핀테크부터 헬스케어, AI, 커뮤니티, 게임, Web3까지</h3>
-                        <p>
-                            다루는 영역은 다양하지만 공통점은 운영 난이도가 높다는 점입니다.
-                            Blue Verse는 새로운 카테고리보다 높은 복잡도 문제에 익숙한 팀입니다.
-                        </p>
-                    </section>
-                    <section class="about-note" data-reveal>
-                        <p class="panel-label">시장 범위</p>
-                        <h3>한국 중심, 글로벌 확장 경험 포함</h3>
-                        <p>
-                            한국 시장 실무형 프로젝트가 가장 많고, 베트남 서비스와 글로벌 모바일/Web3 프로젝트까지 확장 경험이 있습니다.
-                        </p>
-                    </section>
+                <div class="coverage-layout">
+                    <div class="coverage-stats-grid" id="about-stats"></div>
+                    <div class="coverage-notes">
+                        <section class="coverage-note surface-panel" data-reveal>
+                            <p class="eyebrow">산업 범위</p>
+                            <h3>핀테크, 헬스케어, B2B 운영, 모바일 서비스, AI, Web3</h3>
+                            <p>다양한 산업을 다뤘지만 공통점은 운영 난이도가 높다는 점입니다. Blue Verse는 산업보다 복잡도에 익숙한 팀입니다.</p>
+                        </section>
+                        <section class="coverage-note surface-panel" data-reveal>
+                            <p class="eyebrow">시장 범위</p>
+                            <h3>한국 중심, 글로벌 확장 경험 포함</h3>
+                            <p>한국 시장의 실무형 프로젝트가 가장 많고, 베트남과 글로벌 대상 서비스까지 구조를 넓힌 경험이 있습니다.</p>
+                        </section>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section cta-section">
             <div class="container">
-                <div class="cta-panel glass-panel" data-reveal>
+                <div class="cta-panel surface-glass" data-reveal>
                     <div>
-                        <p class="kicker">다음 단계</p>
-                        <h2>운영 난도가 높은 제품을 준비 중이라면, 비슷한 사례부터 확인해보세요.</h2>
-                        <p>
-                            투자조합 운영, 전자결재, 시니어 케어, 멀티플랫폼 서비스처럼 운영 책임이 큰 프로젝트를
-                            어떤 구조로 풀었고 어디까지 구현했는지, 포트폴리오에서 바로 확인할 수 있습니다.
-                        </p>
+                        <p class="eyebrow">다음 단계</p>
+                        <h2>어떤 문제를 풀어 온 팀인지 이해했다면, 이제 실제 사례를 보시면 됩니다.</h2>
+                        <p>대표 사례 3건부터 전체 프로젝트 라이브러리까지 같은 눈금으로 비교할 수 있게 정리해 두었습니다.</p>
                     </div>
                     <div class="cta-actions">
                         <a class="button button-primary" href="index.html#featured-projects">대표 사례 보기</a>
-                        <a class="button button-secondary" href="index.html#project-archive">전체 포트폴리오 보기</a>
+                        <a class="button button-secondary" href="index.html#project-library">전체 프로젝트 보기</a>
                     </div>
                 </div>
             </div>
@@ -192,12 +196,12 @@
                 <img class="footer-symbol" src="assets/1Asset 3@3x.png" alt="Blue Verse 심볼">
                 <div>
                     <strong>BLUEVERSE</strong>
-                    <p>신뢰가 필요한 디지털 제품을 설계하고 구현하는 팀</p>
+                    <p>운영 복잡도를 제품 구조로 바꾸는 구축 팀</p>
                 </div>
             </div>
             <div class="footer-links">
-                <a href="index.html">포트폴리오</a>
-                <a href="about.html">회사 소개</a>
+                <a href="index.html#featured-projects">대표 사례</a>
+                <a href="index.html#project-library">전체 프로젝트</a>
                 <a href="index.html#delivery-model">작업 방식</a>
             </div>
             <p class="footer-meta">Copyright <span data-current-year></span> Blue Verse</p>

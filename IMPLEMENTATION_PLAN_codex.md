@@ -1,40 +1,43 @@
 # IMPLEMENTATION_PLAN_codex
 
-## 구조
+## 구현 구조
 
-- `index.html`: 포트폴리오 진입점
-- `about.html`: About Us 페이지
-- `css/styles.css`: 디자인 토큰, 레이아웃, glass 컴포넌트, 반응형 규칙
-- `js/projects-data.js`: `market-intel` 기준 12개 프로젝트 정규화 데이터
-- `js/site-shell.js`: 공통 내비게이션과 인터랙션
-- `js/portfolio.js`: 포트폴리오 섹션 렌더링과 상세 레이어
+- `index.html`: 리디자인된 포트폴리오 페이지
+- `about.html`: 리디자인된 팀 소개 페이지
+- `css/base.css`: 토큰, 리셋, 타이포, 공통 유틸리티
+- `css/shell.css`: 헤더, 푸터, 공통 패널, 버튼, 배경
+- `css/portfolio.css`: 메인 페이지 전용 섹션
+- `css/about.css`: About 페이지 전용 섹션
+- `js/projects-data.js`: 프로젝트 데이터 소스 유지
+- `js/site-shell.js`: 공통 내비게이션, reveal, year
+- `js/project-modal.js`: 모달 전용 로직 분리
+- `js/project-catalog.js`: 카드/필터/featured 렌더링 분리
+- `js/portfolio.js`: 페이지 조립만 담당
+- `js/about.js`: About 파생 데이터 렌더링
 
-## 이번 세션 산출물
+## 디자인 실행 원칙
 
-- 사이트 복구 기준으로 갱신된 `_codex` 문서
-- `hero_glass_mac.png` 미사용 상태의 새 히어로/카드 레이아웃
-- `market-intel` 프로젝트 셋과 일치하는 `projects-data.js`
-- `proposal-writer` persona 기준으로 다듬은 한국어 카피
-- `orchestrator` persona 기준 병렬 점검 결과를 통합한 레이아웃/카피 수정
-- 로컬 검증 스크린샷과 handoff/changelog
+1. Hero는 한 문장, 한 행동, 한 증거군만 남긴다
+2. 첫 featured는 case-study panel로 크게 보여준다
+3. Secondary featured와 archive는 비교 가능한 카드로 압축한다
+4. About은 카드 반복이 아니라 band / matrix / timeline 조합으로 리듬을 만든다
+5. glass는 핵심 패널에만 쓰고 기본 패널은 종이 같은 밝은 면으로 정리한다
 
 ## 구현 순서
 
-1. 현재 사이트의 깨짐/품질 저하 상태 재현
-2. 복구 범위 기준으로 `_codex` 문서 갱신
-3. `market-intel` 12개 프로젝트 데이터 재정규화
-4. `index.html` / `about.html`의 정보구조와 브랜드 밸런스 재조정
-5. `proposal-writer` persona 기준으로 핵심 카피와 섹션 문장 재작성
-6. 카드/모달/커버 시스템 재설계
-7. `orchestrator` 기준 카피/레이아웃 점검 결과 통합
-8. 로컬 렌더 검증
-9. handoff 및 changelog 기록
+1. `_codex` 계획 문서 갱신
+2. CSS 구조 분리
+3. 공통 shell과 page layout 재구성
+4. 프로젝트 렌더링 로직을 featured / library / modal / filter 단위로 분리
+5. `index.html` 리디자인
+6. `about.html` 리디자인
+7. 반응형 정리
+8. 로컬 정적 검증
+9. handoff / changelog / 배포 판단
 
-## 주요 결정
+## 검증 계획
 
-- 빌드 도구 없이 정적 배포 유지
-- 대표 프로젝트는 `시리즈비`, `이지어프루브`, `하모니 링크`
-- 전체 프로젝트 12개를 모두 소개하되 `templates`는 제외
-- 시각 톤은 light glass를 유지하되, 깨져 보이지 않는 안정감과 정보 밀도를 우선한다.
-- `hero_glass_mac.png`는 이번 범위에서 사용하지 않는다.
-- 카피는 마케팅 과장보다 심사·평가 문장에 가까운 신뢰형 한국어 톤으로 정리한다.
+- `python -m http.server` 기준 응답 200 확인
+- 데스크톱 1440px, 태블릿 1024px, 모바일 390px 뷰포트 확인
+- 첫 화면, featured, project library, about top 캡처
+- modal 동작과 필터 동작 확인

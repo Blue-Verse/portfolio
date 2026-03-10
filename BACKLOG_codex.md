@@ -1,8 +1,6 @@
 # BACKLOG_codex
 
-- 프로젝트별 공개 가능한 외부 링크와 스크린샷 확보
-- 케이스 스터디별 이미지/도표 자산 추가
-- 프로젝트 필터링 UI 고도화
-- 국문/영문 토글 여부 검토
-- 로컬 작업 디렉터리의 손상된 `.git` 복구
-- `market-intel` 카탈로그 편차를 줄이기 위한 정규화 스크립트 검토
+- 프로젝트별 외부 링크가 검증되면 case-study outbound CTA 추가
+- 현재 필터 UI를 sector / market / status 조합까지 확장
+- 프로젝트 상세 modal에 추가 evidence strip 도입
+- 영어 버전 페이지가 필요하면 별도 locale 구조 설계
