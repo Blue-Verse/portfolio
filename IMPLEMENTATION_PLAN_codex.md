@@ -15,6 +15,7 @@
 - `hero_glass_mac.png` 미사용 상태의 새 히어로/카드 레이아웃
 - `market-intel` 프로젝트 셋과 일치하는 `projects-data.js`
 - `proposal-writer` persona 기준으로 다듬은 한국어 카피
+- `orchestrator` persona 기준 병렬 점검 결과를 통합한 레이아웃/카피 수정
 - 로컬 검증 스크린샷과 handoff/changelog
 
 ## 구현 순서
@@ -25,8 +26,9 @@
 4. `index.html` / `about.html`의 정보구조와 브랜드 밸런스 재조정
 5. `proposal-writer` persona 기준으로 핵심 카피와 섹션 문장 재작성
 6. 카드/모달/커버 시스템 재설계
-7. 로컬 렌더 검증
-8. handoff 및 changelog 기록
+7. `orchestrator` 기준 카피/레이아웃 점검 결과 통합
+8. 로컬 렌더 검증
+9. handoff 및 changelog 기록
 
 ## 주요 결정
 

@@ -1,16 +1,58 @@
 import { PROJECTS } from "./projects-data.js";
 import { initSiteShell } from "./site-shell.js";
 
+function getAboutFacts() {
+    const koreanProjects = PROJECTS.filter((project) => project.market === "한국").length;
+    const globalProjects = PROJECTS.filter((project) => project.market !== "한국").length;
+    const featuredProjects = PROJECTS.filter((project) => project.featured).length;
+    const sectors = new Set(PROJECTS.map((project) => project.sector)).size;
+
+    return {
+        koreanProjects,
+        globalProjects,
+        featuredProjects,
+        sectors
+    };
+}
+
+function renderAboutHeroMetrics() {
+    const container = document.querySelector("#about-hero-metrics");
+    if (!container) {
+        return;
+    }
+
+    const { koreanProjects, featuredProjects, sectors } = getAboutFacts();
+    const items = [
+        { value: `${PROJECTS.length}개`, label: "전체 사례" },
+        { value: `${koreanProjects}개`, label: "한국 시장 사례" },
+        { value: `${featuredProjects}개`, label: "대표 사례" },
+        { value: `${sectors}개`, label: "산업 카테고리" }
+    ];
+
+    container.innerHTML = `
+        <p class="panel-label">핵심 범위</p>
+        <div class="about-hero-metrics-grid">
+            ${items
+                .map(
+                    (item) => `
+                        <article class="about-hero-metric">
+                            <strong>${item.value}</strong>
+                            <span>${item.label}</span>
+                        </article>
+                    `
+                )
+                .join("")}
+        </div>
+    `;
+}
+
 function renderAboutStats() {
     const container = document.querySelector("#about-stats");
     if (!container) {
         return;
     }
 
-    const koreanProjects = PROJECTS.filter((project) => project.market === "한국").length;
-    const globalProjects = PROJECTS.filter((project) => project.market !== "한국").length;
-    const featuredProjects = PROJECTS.filter((project) => project.featured).length;
-    const sectors = new Set(PROJECTS.map((project) => project.sector)).size;
+    const { koreanProjects, globalProjects, featuredProjects, sectors } = getAboutFacts();
 
     const items = [
         {
@@ -53,5 +95,6 @@ function renderAboutStats() {
         .join("");
 }
 
+renderAboutHeroMetrics();
 renderAboutStats();
 initSiteShell();

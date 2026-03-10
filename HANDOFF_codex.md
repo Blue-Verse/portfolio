@@ -1,11 +1,50 @@
 # HANDOFF_codex
 
+## 오케스트레이터 카피/레이아웃 정리 세션 메모
+
+- 새 요청 범위: `orchestrator` 기준으로 카피와 레이아웃을 다시 다듬고, 첫 화면 과밀도와 카드 위계를 낮춘다.
+- 병렬 감사 결과를 기준으로 hero 과밀도, featured 위계 부족, archive 카드 과정보다 과밀한 문제, About 페이지 리듬의 단조로움을 우선 수정했다.
+- 메인 히어로에서 로스터를 분리하고 CTA를 1차 행동 중심으로 줄였으며, `market-intel` 같은 내부 용어는 사용자-facing 카피에서 제거했다.
+- 대표 사례는 첫 카드만 큰 케이스 스터디 패널로 유지하고, 나머지 featured/ archive 카드는 비교 중심으로 압축했다.
+- About 페이지에는 wide positioning band를 추가해 카드 반복감을 줄였고, CTA를 저장소 링크 대신 사례 탐색 중심으로 재정렬했다.
+- `hero_glass_mac.png`는 여전히 사용하지 않았다.
+
+## 이번 세션 핵심 변경
+
+1. `index.html` hero를 더 짧고 직접적인 buyer-facing 카피로 재작성
+2. 로스터를 hero 밖 별도 섹션으로 이동해 첫 화면 복잡도를 축소
+3. `js/portfolio.js`에서 featured 1건과 나머지 카드의 위계를 다르게 렌더링
+4. archive 카드를 요약 + 대표 지표 중심으로 압축
+5. `about.html`에 wide positioning band와 더 직접적인 팀 소개 문장 반영
+6. `css/styles.css`에서 헤더 크기, 모바일 내비게이션, featured/archive 카드 밀도 재조정
+7. 두 페이지 모두 PNG 로고 기반 favicon 추가
+
+## 이번 세션 검증 메모
+
+1. 병렬 감사 응답:
+   - copy audit: Euler
+   - layout audit: Banach
+2. 로컬 정적 서버 기준 응답 200 확인:
+   - `index.html`
+   - `about.html`
+   - `css/styles.css`
+   - `js/portfolio.js`
+   - `js/about.js`
+   - `assets/1Asset 3@3x.png`
+3. 최신 뷰포트 캡처:
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-orchestrator-pass-3\index-top.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-orchestrator-pass-3\about-top-v2.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-orchestrator-pass-3\index-mobile-top.png`
+4. 검증 중 favicon 요청 404를 확인해 PNG favicon 연결로 정리
+
 ## 디자인/CSS 복구 세션 메모
 
 - 새 요청 범위: GitHub Pages 호환성을 유지한 채 포트폴리오의 디자인/CSS 품질을 다시 끌어올리고, 이어서 카피도 persona 기반으로 재작성
 - `proposal-writer` persona를 적용해 히어로, 섹션 헤드라인, CTA, About 문장을 더 단단한 한국어 톤으로 재작성
 - `designer` 관점으로 헤더, 히어로, featured 카드, fallback cover, 모바일 헤더를 다시 정리
 - `hero_glass_mac.png`는 계속 사용하지 않았고, 상대 경로 정적 자산 구조도 유지
+- 2026-03-10 22:22 KST 기준 원격 `Blue-Verse/portfolio` `main`에 배포 완료
+- 공개 URL `https://blue-verse.github.io/portfolio/`에서 새 hero 카피와 `Evidence-Based Portfolio` 문자열 반영 확인
 
 ## 이번 세션 핵심 변경
 

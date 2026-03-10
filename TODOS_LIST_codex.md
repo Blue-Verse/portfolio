@@ -7,5 +7,6 @@
 - [x] 헤더/히어로/카드 밀도 재설계
 - [x] `proposal-writer` persona 기준 카피 재작성
 - [x] `about.html` 데이터/톤 정리
-- [x] 로컬 검증 및 결과 캡처
+- [x] `orchestrator` 기준 카피/레이아웃 병렬 점검
+- [x] 통합 수정 및 로컬 재검증
 - [x] handoff 및 changelog 갱신

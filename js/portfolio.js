@@ -29,10 +29,10 @@ function renderHeroRoster() {
         <section class="hero-roster-panel glass-panel">
             <div class="hero-roster-head">
                 <div>
-                    <p class="hero-roster-label">Portfolio Coverage</p>
-                    <strong>검토 완료 프로젝트 ${PROJECTS.length}개</strong>
+                    <p class="hero-roster-label">전체 사례 범위</p>
+                    <strong>검토한 프로젝트 ${PROJECTS.length}개</strong>
                 </div>
-                <span>카드를 누르면 상세 구조를 바로 볼 수 있습니다.</span>
+                <span>필요한 사례를 바로 열어 상세 구조를 확인할 수 있습니다.</span>
             </div>
             <div class="hero-roster-grid">
                 ${PROJECTS.map((project) => `
@@ -125,7 +125,7 @@ function renderShowcase(project, variant = "archive") {
             </div>
             <p class="project-fallback-copy">${project.tagline}</p>
             <div class="project-fallback-stat">
-                <span>Key Signal</span>
+                <span>대표 지표</span>
                 <strong>${project.impactMetrics[0]}</strong>
             </div>
             <div class="project-fallback-stack">
@@ -152,13 +152,25 @@ function renderFeatured() {
                     </div>
                     <div class="meta-block">${createPills(project)}</div>
                 </div>
-                <p class="project-summary lead">${project.summary}</p>
-                <ul class="project-keypoints">
-                    ${project.highlights.slice(0, 3).map((item) => `<li>${item}</li>`).join("")}
-                </ul>
-                <div class="metric-row featured-metrics">
-                    ${renderMetricList(project.impactMetrics, 3)}
-                </div>
+                <p class="project-summary ${index === 0 ? "lead" : ""}">${project.summary}</p>
+                ${index === 0 ? `
+                    <div class="featured-primary-signal">
+                        <span>대표 지표</span>
+                        <strong>${project.impactMetrics[0]}</strong>
+                    </div>
+                    <ul class="project-keypoints">
+                        ${project.highlights.slice(0, 2).map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                    <div class="metric-row featured-metrics">
+                        ${renderMetricList(project.impactMetrics, 3)}
+                    </div>
+                ` : `
+                    <div class="featured-secondary-signal">
+                        <span>대표 지표</span>
+                        <strong>${project.impactMetrics[0]}</strong>
+                    </div>
+                    <p class="project-secondary-note">${project.highlights[0]}</p>
+                `}
                 <button class="card-action" type="button" data-project-trigger="${project.slug}">
                     구조와 결과 보기
                 </button>
@@ -188,15 +200,10 @@ function renderArchive() {
                     <span>${project.market}</span>
                     <span>${project.period}</span>
                 </div>
-                <p class="project-summary">${project.tagline}</p>
-                <ul class="project-keypoints compact">
-                    ${project.highlights.slice(0, 2).map((item) => `<li>${item}</li>`).join("")}
-                </ul>
-                <div class="metric-row compact">
-                    ${renderMetricList(project.impactMetrics, 2)}
-                </div>
-                <div class="stack-line">
-                    ${renderStackLine(project.stack, 4)}
+                <p class="project-summary archive-summary">${project.summary}</p>
+                <div class="archive-signal">
+                    <span>대표 지표</span>
+                    <strong>${project.impactMetrics[0]}</strong>
                 </div>
                 <button class="card-action" type="button" data-project-trigger="${project.slug}">
                     상세 보기
