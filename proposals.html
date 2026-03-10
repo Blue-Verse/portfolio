@@ -167,6 +167,11 @@
             font-weight: 800;
         }
 
+        .proposal-total {
+            background: rgba(16, 185, 129, 0.08);
+            color: #047857;
+        }
+
         @media (max-width: 560px) {
             .proposals-grid {
                 grid-template-columns: 1fr;
@@ -219,6 +224,7 @@
                     견적, 공수 산출, PRD, 일정 계획, 유사 프로젝트 경험을 포함합니다.
                 </p>
                 <div class="proposal-count" id="proposal-count"></div>
+                <div class="proposal-count proposal-total" id="proposal-total"></div>
             </div>
         </section>
 
@@ -273,6 +279,26 @@
             tech: ["React", "Node.js", "Python", "PyTorch", "MongoDB", "AWS"]
         },
         {
+            title: "React Native 기반 글로벌 팬덤 플랫폼 개발",
+            slug: "proposal-fandom-platform",
+            date: "2026-03-10",
+            budget: "2,700만원",
+            duration: "120일",
+            category: "모바일/커뮤니티",
+            description: "3D 갤럭시 뷰 기반 팬덤 플랫폼 MVP. POP 토큰 이코노미, 크라우드펀딩 아카이브, 걸음수·유튜브 스트리밍 연동, 디지털 ID 카드.",
+            tech: ["React Native Expo", "TypeScript", "Three.js", "Firebase", "Health API"]
+        },
+        {
+            title: "AI(RAG) 기반 멘탈 케어 캘린더 앱 개발",
+            slug: "proposal-banya-routine-mental-care",
+            date: "2026-03-10",
+            budget: "2,250만원",
+            duration: "90일",
+            category: "모바일/AI",
+            description: "생체심리 데이터와 생성형 AI를 결합한 멘탈 웰니스 플랫폼 MVP. 무드 예측 캘린더, RAG 기반 코칭 챗봇, 구독 결제.",
+            tech: ["Flutter", "NestJS", "PostgreSQL", "OpenAI API", "Pinecone", "LangChain"]
+        },
+        {
             title: "부동산 분양 현장 홍보 웹사이트 2종 구축",
             slug: "proposal-realestate-promo-web",
             date: "2026-03-11",
@@ -323,6 +349,16 @@
             tech: ["Figma", "Photoshop", "Illustrator"]
         },
         {
+            title: "전자출입 등하교 알림 Push 서버 구축",
+            slug: "proposal-push-notification-server",
+            date: "2026-03-10",
+            budget: "450만원",
+            duration: "30일",
+            category: "백엔드/인프라",
+            description: "자체 Push 서버 구축으로 알림 지연 해소. Queue 기반 비동기 메시징, Auto-Failover, FCM/APNS 연동, 관리자 모니터링 대시보드.",
+            tech: ["Java Spring", "RabbitMQ", "MariaDB", "Docker", "jQuery"]
+        },
+        {
             title: "AI 기반 일기 분석 및 가치관 시각화 MVP 기획",
             slug: "proposal-ai-diary-mvp-planning",
             date: "2026-03-11",
@@ -351,6 +387,16 @@
             category: "웹/핀테크",
             description: "국내/해외 거래소 간 현물 아비트리지 모니터링. WebSocket 실시간 호가, 스프레드 필터링, 입출금 상태 자동 필터링.",
             tech: ["Python", "WebSocket", "asyncio", "React"]
+        },
+        {
+            title: "모바일 소개팅/매칭 앱 UI/UX 디자인",
+            slug: "proposal-dating-matching-app-ux",
+            date: "2026-03-10",
+            budget: "180만원",
+            duration: "30일",
+            category: "디자인/모바일",
+            description: "Tinder·위피·골드스푼 벤치마킹 기반 매칭 앱 UI/UX 디자인. 25+ 화면, 디자인 시스템, 인터랙티브 프로토타입 포함.",
+            tech: ["Figma"]
         },
         {
             title: "갤러리 플랫폼 기획 및 UI/UX 디자인",
@@ -383,9 +429,33 @@
         return el;
     }
 
+    function budgetToNumber(str) {
+        let n = 0;
+        const raw = str.replace(/,/g, '');
+        const eok = raw.match(/([\d.]+)\s*억/);
+        const man = raw.match(/([\d.]+)\s*만/);
+        if (eok) n += parseFloat(eok[1]) * 100000000;
+        if (man) n += parseFloat(man[1]) * 10000;
+        return n;
+    }
+
+    function formatKRW(n) {
+        const eok = Math.floor(n / 100000000);
+        const man = Math.round((n % 100000000) / 10000);
+        let s = '';
+        if (eok > 0) s += eok + '억 ';
+        if (man > 0) s += man.toLocaleString() + '만';
+        return s.trim() + '원';
+    }
+
     function renderProposals() {
         const grid = document.getElementById('proposals-grid');
         const countEl = document.getElementById('proposal-count');
+        const totalEl = document.getElementById('proposal-total');
+
+        // Total budget
+        const totalBudget = PROPOSALS.reduce((sum, p) => sum + budgetToNumber(p.budget), 0);
+        totalEl.textContent = '총 제안 금액 ' + formatKRW(totalBudget);
 
         // Count badge
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
