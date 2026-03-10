@@ -4,15 +4,20 @@
 
 1. `CONTEXT_codex.md`
 2. `SPEC_codex.md`
-3. `IMPLEMENTATION_PLAN_codex.md`
-4. `TODOS_LIST_codex.md`
-5. `HANDOFF_codex.md`
+3. `USER_STORY_codex.md`
+4. `USER_FLOW_codex.md`
+5. `IMPLEMENTATION_PLAN_codex.md`
+6. `TASK_BREAKDOWN_codex.md`
+7. `BACKLOG_codex.md`
+8. `TODOS_LIST_codex.md`
+9. `HANDOFF_codex.md`
 
 작업 원칙:
 
 - 기존 디자인과 코드를 재사용하지 않고 새 구조로 구현합니다.
-- 정적 GitHub Pages 배포를 유지합니다.
+- 정적 GitHub Pages 배포를 유지하되, 페이지 수는 필요에 따라 확장할 수 있습니다.
 - `index.html`은 진입점만 담당하고, 스타일과 스크립트는 분리합니다.
+- `about.html`이 존재하면 동일한 디자인 시스템과 내비게이션을 공유합니다.
 - 로고는 `assets/BLUEVERSE.png`, `assets/1Asset 3@3x.png`만 사용합니다.
 - 문서 파일은 다른 에이전트와 충돌을 피하기 위해 `_codex` suffix를 유지합니다.
 - 세션 종료 전 `HANDOFF_codex.md`와 changelog를 반드시 갱신합니다.

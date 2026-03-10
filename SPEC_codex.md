@@ -8,13 +8,24 @@
 
 ## 핵심 섹션
 
+### index.html
+
 1. Hero
-2. 신뢰 지표 스트립
+2. 실행 신호 스트립
 3. 대표 프로젝트 3선
 4. 전체 프로젝트 포트폴리오
 5. 전달 가능한 역량
-6. 작업 원칙 / 엔지니어링 품질
+6. 작업 원칙 / 품질 관점
 7. CTA / Footer
+
+### about.html
+
+1. 팀 포지셔닝 Hero
+2. 회사 소개
+3. 우리가 다루는 복잡도
+4. 작업 방식
+5. 연혁 / 분야 범위
+6. 포트폴리오로 돌아가는 CTA
 
 ## 콘텐츠 계약
 
@@ -26,14 +37,15 @@
 - `tagline`
 - `sector`
 - `market`
+- `period`
 - `summary`
-- `problem`
-- `solution`
+- `challenge`
+- `approach`
 - `impactMetrics`
 - `stack`
-- `strengths`
+- `highlights`
 - `status`
-- `publicLinks`
+- `evidenceNote`
 - `featured`
 
 ## 인터랙션 요구사항
