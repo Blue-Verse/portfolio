@@ -57,5 +57,9 @@
 
 ## 배포 메모
 
-- 원격 반영은 fresh clone 경로 `C:\Users\horim\AppData\Local\Temp\blue-verse-portfolio-deploy-codex-20260311-0305`에서 진행 중
+- 원격 반영은 fresh clone 경로 `C:\Users\horim\AppData\Local\Temp\blue-verse-portfolio-deploy-codex-20260311-0305`에서 완료
 - 배포 대상 저장소는 `https://github.com/Blue-Verse/portfolio`
+- 원격 커밋: `f5b8530` - `feat: declutter portfolio layout and copy`
+- 라이브 검증:
+  1. `https://blue-verse.github.io/portfolio/?v=20260311-0308` 기준 `복잡한 운영일수록`, `brand-wordmark`, `프로젝트를 문제 유형 기준으로 비교할 수 있습니다`, `Blue Verse 소개` 확인
+  2. `https://blue-verse.github.io/portfolio/about.html?v=20260311-0308` 기준 `운영 구조를 먼저 설계하는 팀입니다`, `복잡한 서비스일수록 구조가 먼저 정리되어야 합니다`, `사례 보기` 확인
