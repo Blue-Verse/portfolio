@@ -3,310 +3,425 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLUEVERSE — Portfolio</title>
+  <title>BLUEVERSE — 포트폴리오</title>
   <meta name="description" content="Blue Verse 프로젝트 포트폴리오. AI · 블록체인 기반 소프트웨어 개발 전문 기업.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      /* ── Blue Verse CI Colors ──────────── */
-      --bv-blue: #1B3FA0;
-      --bv-blue-light: #2952C4;
-      --bv-blue-dark: #0F2A6E;
-      --bv-blue-glow: rgba(27, 63, 160, 0.2);
-      --bv-blue-subtle: rgba(27, 63, 160, 0.08);
+      --bv: #0D3B8E;
+      --bv-light: #2563EB;
+      --bv-dark: #082B6A;
+      --bv-50: rgba(13, 59, 142, 0.05);
+      --bv-100: rgba(13, 59, 142, 0.10);
+      --bv-200: rgba(13, 59, 142, 0.18);
 
-      /* ── UI Tokens ─────────────────────── */
-      --bg: #06080E;
-      --bg-card: #0C1018;
-      --bg-card-hover: #111827;
-      --border: #1A2035;
-      --border-hover: var(--bv-blue);
-      --text: #E8EAF0;
-      --text-muted: #7B83A0;
-      --accent: var(--bv-blue-light);
-      --accent-glow: var(--bv-blue-glow);
+      --bg: #F2F4F8;
+      --bg-mesh-1: rgba(13, 59, 142, 0.04);
+      --bg-mesh-2: rgba(99, 165, 255, 0.06);
+      --bg-mesh-3: rgba(200, 220, 255, 0.08);
 
-      --gradient-brand: linear-gradient(135deg, #1B3FA0, #2952C4, #4F7DF2);
-      --gradient-cyan: linear-gradient(135deg, #06b6d4, #3b82f6);
-      --gradient-warm: linear-gradient(135deg, #f59e0b, #ef4444);
-      --gradient-green: linear-gradient(135deg, #10b981, #06b6d4);
+      /* Liquid Glass tokens */
+      --glass-bg: rgba(255, 255, 255, 0.55);
+      --glass-bg-hover: rgba(255, 255, 255, 0.70);
+      --glass-border: rgba(255, 255, 255, 0.60);
+      --glass-border-outer: rgba(13, 59, 142, 0.08);
+      --glass-shadow: 0 2px 24px rgba(13, 59, 142, 0.06), 0 1px 4px rgba(0,0,0,0.04);
+      --glass-shadow-hover: 0 8px 40px rgba(13, 59, 142, 0.10), 0 2px 8px rgba(0,0,0,0.06);
+      --glass-blur: blur(20px) saturate(1.6);
+      --glass-inner-highlight: inset 0 1px 0 rgba(255,255,255,0.7);
 
-      --radius: 16px;
-      --max-w: 1200px;
+      --text: #1A2340;
+      --text-secondary: #4A5575;
+      --text-tertiary: #7B85A0;
+
+      --radius: 20px;
+      --radius-sm: 12px;
+      --max-w: 1120px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      position: relative;
     }
 
-    /* ── Nav ─────────────────────────────── */
+    /* ── Background mesh gradient ────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(99,165,255,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(13,59,142,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 70% at 50% 90%, rgba(140,180,255,0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #EDF1F8 0%, #F2F4F8 30%, #F6F7FB 100%);
+    }
+
+    /* ── Nav (liquid glass) ──────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(6, 8, 14, 0.85);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.50);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 1px 12px rgba(13, 59, 142, 0.04);
     }
     .nav-inner {
       max-width: var(--max-w); margin: 0 auto;
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      height: 60px;
     }
     .logo-link {
-      display: flex; align-items: center; gap: 0.625rem;
+      display: flex; align-items: center; gap: 0.5rem;
       text-decoration: none;
     }
-    .logo-mark {
-      width: 32px; height: 32px;
-    }
+    .logo-mark { width: 28px; height: 28px; }
     .logo-text {
-      font-size: 1.1rem; font-weight: 800; letter-spacing: 0.06em;
-      color: var(--text);
+      font-size: 0.95rem; font-weight: 800; letter-spacing: 0.08em;
+      color: var(--bv);
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a {
-      color: var(--text-muted); text-decoration: none; font-size: 0.875rem;
+      color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
       font-weight: 500; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--bv); }
 
     /* ── Hero ────────────────────────────── */
     .hero {
-      min-height: 90vh;
+      min-height: 85vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative; overflow: hidden;
+      padding: 7rem 2rem 4rem;
+      position: relative;
     }
-    .hero::before {
-      content: '';
-      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, var(--bv-blue-glow) 0%, rgba(27,63,160,0.05) 40%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -20%; left: 30%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(79,125,242,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-logo-mark {
-      width: 72px; height: 72px;
+    .hero-logo {
+      width: 80px; height: 80px;
       margin-bottom: 2rem;
-      filter: drop-shadow(0 0 30px rgba(27, 63, 160, 0.4));
+      filter: drop-shadow(0 4px 20px rgba(13, 59, 142, 0.15));
     }
     .hero-badge {
-      display: inline-block;
-      padding: 0.375rem 1rem;
-      border: 1px solid var(--border);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1.1rem;
       border-radius: 999px;
-      font-size: 0.8rem; color: var(--text-muted);
+      font-size: 0.78rem; font-weight: 500; color: var(--bv);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
       margin-bottom: 2rem;
-      background: var(--bg-card);
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 900; letter-spacing: -0.03em;
-      line-height: 1.1; margin-bottom: 1.5rem;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.2; margin-bottom: 1.25rem;
+      color: var(--text);
     }
-    .hero h1 .gradient-text {
-      background: var(--gradient-brand);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero h1 .blue {
+      color: var(--bv);
     }
-    .hero p {
-      font-size: 1.15rem; color: var(--text-muted);
-      max-width: 580px; margin-bottom: 3rem; line-height: 1.8;
+    .hero > p {
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 520px; margin-bottom: 3rem; line-height: 1.8;
     }
-    .hero-stats {
-      display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;
+
+    /* ── Stats bar (glass) ───────────────── */
+    .stats-bar {
+      display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+      overflow: hidden;
     }
-    .hero-stat { text-align: center; }
-    .hero-stat .num {
-      font-size: 2rem; font-weight: 800;
-      background: var(--gradient-brand);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    .stat {
+      padding: 1.25rem 2rem;
+      text-align: center;
+      position: relative;
     }
-    .hero-stat .label {
-      font-size: 0.75rem; color: var(--text-muted);
-      margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em;
+    .stat + .stat::before {
+      content: '';
+      position: absolute; left: 0; top: 25%; height: 50%;
+      width: 1px; background: rgba(13,59,142,0.08);
+    }
+    .stat .num {
+      font-size: 1.6rem; font-weight: 800; color: var(--bv);
+      display: block;
+    }
+    .stat .lbl {
+      font-size: 0.7rem; color: var(--text-tertiary);
+      margin-top: 0.125rem; font-weight: 500;
     }
 
     /* ── Section ─────────────────────────── */
-    section { padding: 6rem 2rem; }
+    section { padding: 5rem 2rem; }
     .section-inner { max-width: var(--max-w); margin: 0 auto; }
     .section-label {
       font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--bv-blue-light); margin-bottom: 0.75rem;
+      letter-spacing: 0.12em; color: var(--bv-light); margin-bottom: 0.5rem;
     }
     .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
       font-weight: 800; letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem; color: var(--text);
     }
     .section-desc {
-      color: var(--text-muted); max-width: 600px; margin-bottom: 3rem;
+      color: var(--text-secondary); max-width: 520px; margin-bottom: 2.5rem;
+      font-size: 0.95rem;
     }
 
-    /* ── Project Cards ───────────────────── */
+    /* ── Project Cards (liquid glass) ────── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+      gap: 1.5rem;
     }
     .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.35s cubic-bezier(0.22,1,0.36,1),
+                  background 0.35s;
     }
     .project-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--bv-blue);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 48px var(--bv-blue-glow);
+      transform: translateY(-3px);
+      background: var(--glass-bg-hover);
+      box-shadow: var(--glass-shadow-hover), var(--glass-inner-highlight);
     }
     .card-header {
-      padding: 2rem 2rem 0;
+      padding: 1.75rem 1.75rem 0;
       display: flex; align-items: flex-start; justify-content: space-between;
     }
     .card-icon {
-      width: 48px; height: 48px; border-radius: 12px;
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; flex-shrink: 0;
+      font-size: 1.35rem; flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .card-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+    .card-badges { display: flex; gap: 0.375rem; flex-wrap: wrap; justify-content: flex-end; }
     .badge {
-      padding: 0.25rem 0.625rem;
-      border-radius: 999px; font-size: 0.7rem; font-weight: 600;
-      border: 1px solid var(--border); color: var(--text-muted);
-      background: rgba(255,255,255,0.02);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px; font-size: 0.65rem; font-weight: 600;
+      border: 1px solid var(--glass-border-outer);
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.6);
     }
     .badge.primary {
-      border-color: var(--bv-blue);
-      color: var(--bv-blue-light);
-      background: var(--bv-blue-subtle);
+      border-color: var(--bv-200);
+      color: var(--bv);
+      background: rgba(13, 59, 142, 0.06);
     }
-    .card-body { padding: 1.5rem 2rem 2rem; }
+    .card-body { padding: 1.25rem 1.75rem 1.75rem; }
     .card-body h3 {
-      font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem;
-      letter-spacing: -0.01em;
+      font-size: 1.35rem; font-weight: 700; margin-bottom: 0.2rem;
+      letter-spacing: -0.01em; color: var(--text);
     }
     .card-body .subtitle {
-      font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;
+      font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;
     }
     .card-body .desc {
-      font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
-      margin-bottom: 1.5rem;
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;
+      margin-bottom: 1.25rem;
     }
     .card-metrics {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 1rem; margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 0.75rem; margin-bottom: 1.25rem;
     }
     .metric {
-      padding: 0.75rem; border-radius: 10px;
-      background: rgba(27, 63, 160, 0.04);
-      border: 1px solid rgba(27, 63, 160, 0.08);
+      padding: 0.625rem 0.75rem; border-radius: var(--radius-sm);
+      background: rgba(13, 59, 142, 0.03);
+      border: 1px solid rgba(13, 59, 142, 0.05);
     }
-    .metric .val { font-size: 1.25rem; font-weight: 700; }
-    .metric .lbl { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.125rem; }
+    .metric .val { font-size: 1.1rem; font-weight: 700; color: var(--bv); }
+    .metric .lbl { font-size: 0.65rem; color: var(--text-tertiary); margin-top: 0.1rem; }
 
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .tech-tag {
-      padding: 0.25rem 0.625rem;
-      border-radius: 6px; font-size: 0.7rem; font-weight: 500;
-      background: rgba(27, 63, 160, 0.06); color: var(--text-muted);
-      border: 1px solid rgba(27, 63, 160, 0.1);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px; font-size: 0.65rem; font-weight: 500;
+      background: rgba(13, 59, 142, 0.04);
+      color: var(--text-secondary);
+      border: 1px solid rgba(13, 59, 142, 0.06);
     }
 
     /* ── Features list ───────────────────── */
     .features-list {
-      list-style: none; margin-bottom: 1.5rem;
+      list-style: none; margin-bottom: 1.25rem;
     }
     .features-list li {
-      font-size: 0.85rem; color: var(--text-muted);
-      padding: 0.375rem 0;
-      padding-left: 1.25rem;
-      position: relative;
+      font-size: 0.82rem; color: var(--text-secondary);
+      padding: 0.3rem 0; padding-left: 1.1rem;
+      position: relative; line-height: 1.6;
     }
     .features-list li::before {
-      content: '→';
-      position: absolute; left: 0;
-      color: var(--bv-blue-light); font-weight: 600;
+      content: '';
+      position: absolute; left: 0; top: 0.7em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--bv-light);
     }
 
     /* ── About Section ───────────────────── */
     .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
     }
     .about-card {
-      padding: 2rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      padding: 1.75rem;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius);
-      transition: border-color 0.3s;
+      box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
     }
-    .about-card:hover { border-color: rgba(27, 63, 160, 0.3); }
+    .about-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glass-shadow-hover), var(--glass-inner-highlight);
+    }
+    .about-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; margin-bottom: 1rem;
+      background: rgba(13, 59, 142, 0.06);
+    }
     .about-card h4 {
-      font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;
+      font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;
       color: var(--text);
     }
-    .about-card p { font-size: 0.9rem; color: var(--text-muted); }
+    .about-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
 
     /* ── Footer ──────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
       padding: 3rem 2rem;
       text-align: center;
     }
-    footer p { color: var(--text-muted); font-size: 0.85rem; }
-    footer a { color: var(--bv-blue-light); text-decoration: none; }
     .footer-inner {
       max-width: var(--max-w); margin: 0 auto;
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
     }
-    .footer-logo { width: 28px; height: 28px; opacity: 0.5; }
+    .footer-logo { width: 24px; height: 24px; opacity: 0.35; }
+    footer p { color: var(--text-tertiary); font-size: 0.8rem; }
+    footer a { color: var(--bv-light); text-decoration: none; }
 
     /* ── Responsive ──────────────────────── */
     @media (max-width: 640px) {
-      .hero-stats { gap: 2rem; }
-      .card-header { flex-direction: column; gap: 1rem; }
+      .stats-bar { flex-direction: column; border-radius: var(--radius-sm); }
+      .stat + .stat::before { display: none; }
+      .stat { padding: 0.75rem 1.5rem; }
+      .card-header { flex-direction: column; gap: 0.75rem; }
       .card-badges { justify-content: flex-start; }
       .nav-links { display: none; }
+      .hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── SVG Defs (Blueverse Logo) ───────── -->
+<!-- ── SVG Defs ─────────────────────────── -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
   <defs>
-    <symbol id="bv-logo" viewBox="0 0 100 100">
-      <!-- Stylized B + Möbius strip logo -->
-      <path d="M30 15 L30 85 L55 85 C72 85 82 75 82 63 C82 53 76 46 66 44 C74 41 78 34 78 26 C78 17 70 15 58 15 Z
-               M44 28 L55 28 C62 28 65 31 65 35 C65 39 62 42 55 42 L44 42 Z
-               M44 54 L57 54 C65 54 69 57 69 62 C69 67 65 72 57 72 L44 72 Z"
-            fill="#1B3FA0" fill-rule="evenodd"/>
-      <!-- Möbius infinity accent -->
-      <path d="M18 50 C18 35 28 22 42 18 M82 50 C82 65 72 78 58 82"
-            stroke="#4F7DF2" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
-      <path d="M58 18 C72 22 82 35 82 50 M42 82 C28 78 18 65 18 50"
-            stroke="#1B3FA0" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <!-- Blueverse logo: interlocking D shapes forming B + Möbius -->
+    <symbol id="bv-logo" viewBox="0 0 200 220">
+      <!-- Left vertical D shape (backbone) -->
+      <path d="
+        M40 10 L80 10 L80 50
+        Q80 10 120 10
+        L120 10
+        Q160 10 160 50
+        L160 50
+        Q160 85 125 90
+        L80 90 L80 90
+        L80 130
+        L125 130
+        Q160 130 160 165
+        L160 170
+        Q160 210 120 210
+        L40 210 L40 170
+        Q40 210 80 210
+        L80 210
+        Q115 210 115 175
+        L115 170
+        Q115 145 80 145
+        L40 145
+        Z
+        M80 25 L80 75
+        L115 75
+        Q140 75 140 50
+        L140 48
+        Q140 25 115 25
+        Z
+      " fill="#0D3B8E" fill-rule="evenodd"/>
+    </symbol>
+
+    <!-- Simplified horizontal logo mark -->
+    <symbol id="bv-mark" viewBox="0 0 100 100">
+      <!-- Left shape: vertical bar + top-left curve -->
+      <path d="
+        M15 8 L38 8 L38 42 L15 42 Z
+        M15 8 Q15 8 15 8
+        M38 8 L50 8 Q72 8 72 28 Q72 42 55 44 L38 44 L38 42
+      " fill="#0D3B8E"/>
+      <!-- Right shape: bottom D curve interlocking -->
+      <path d="
+        M15 48 L38 48 L38 92 L15 92 Z
+        M38 48 L55 48 Q78 48 78 68 Q78 92 50 92 L15 92 L15 78
+        Q15 92 38 92 L50 92 Q62 92 62 72 Q62 58 50 58 L38 58 L38 48
+      " fill="#0D3B8E"/>
+      <!-- Top curve connecting piece -->
+      <path d="
+        M15 0 L15 8 Q0 8 0 28 L0 42 Q0 48 6 48 L15 48 L15 58 L0 58 Q0 58 0 42 L0 28 Q0 0 28 0 L15 0
+      " fill="#0D3B8E" opacity="0"/>
+    </symbol>
+
+    <!-- Clean geometric mark matching the actual CI -->
+    <symbol id="bv-icon" viewBox="0 0 120 140">
+      <!-- Upper-left vertical + quarter arc -->
+      <path d="
+        M10 0 L42 0 L42 58 L10 58 Z
+      " fill="#0D3B8E"/>
+      <path d="
+        M42 0 L60 0
+        C95 0 110 18 110 46
+        L110 46
+        C110 56 106 62 98 62
+        L42 62
+        L42 0 Z
+      " fill="#0D3B8E"/>
+      <!-- Lower-right D shape -->
+      <path d="
+        M10 72 L42 72 L42 140 L10 140 Z
+      " fill="#0D3B8E"/>
+      <path d="
+        M42 72 L60 72
+        C95 72 116 90 116 118
+        L116 118
+        C116 132 105 140 88 140
+        L10 140 L10 126
+        C10 140 24 140 42 140
+        L78 140
+        C92 140 98 132 98 120
+        C98 100 86 86 64 86
+        L42 86
+        L42 72 Z
+      " fill="#0D3B8E"/>
     </symbol>
   </defs>
 </svg>
@@ -315,12 +430,12 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo-link">
-      <svg class="logo-mark"><use href="#bv-logo"/></svg>
+      <svg class="logo-mark" viewBox="0 0 120 140"><use href="#bv-icon"/></svg>
       <span class="logo-text">BLUEVERSE</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#about">소개</a></li>
       <li><a href="https://github.com/Blue-Verse" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </div>
@@ -328,29 +443,30 @@
 
 <!-- Hero -->
 <header class="hero">
-  <svg class="hero-logo-mark"><use href="#bv-logo"/></svg>
-  <span class="hero-badge">AI &middot; Blockchain &middot; Full-Stack Engineering</span>
+  <svg class="hero-logo" viewBox="0 0 120 140"><use href="#bv-icon"/></svg>
+  <span class="hero-badge">AI &middot; 블록체인 &middot; 풀스택 엔지니어링</span>
   <h1>
-    Building <span class="gradient-text">Intelligent</span><br>
-    Software Solutions
+    <span class="blue">지능형</span> 소프트웨어를<br>
+    설계합니다
   </h1>
-  <p>AI와 블록체인 기술을 결합한 소프트웨어 개발 전문 기업<br>Blue Verse의 프로젝트 포트폴리오입니다.</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">4</div>
-      <div class="label">Projects Delivered</div>
+  <p>AI와 블록체인 기술을 결합한 소프트웨어 개발 전문 기업,<br>Blue Verse의 프로젝트 포트폴리오입니다.</p>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="num">4</span>
+      <span class="lbl">프로젝트 납품</span>
     </div>
-    <div class="hero-stat">
-      <div class="num">300K+</div>
-      <div class="label">Lines of Code</div>
+    <div class="stat">
+      <span class="num">300K+</span>
+      <span class="lbl">코드 라인</span>
     </div>
-    <div class="hero-stat">
-      <div class="num">10+</div>
-      <div class="label">Platforms</div>
+    <div class="stat">
+      <span class="num">10+</span>
+      <span class="lbl">지원 플랫폼</span>
     </div>
-    <div class="hero-stat">
-      <div class="num">5+</div>
-      <div class="label">AI Integrations</div>
+    <div class="stat">
+      <span class="num">5+</span>
+      <span class="lbl">AI 연동</span>
     </div>
   </div>
 </header>
@@ -358,8 +474,8 @@
 <!-- Projects -->
 <section id="projects">
   <div class="section-inner">
-    <div class="section-label">Portfolio</div>
-    <h2 class="section-title">Featured Projects</h2>
+    <div class="section-label">포트폴리오</div>
+    <h2 class="section-title">주요 프로젝트</h2>
     <p class="section-desc">기획부터 배포까지, 풀스택 엔지니어링으로 완성한 프로젝트들입니다.</p>
 
     <div class="projects-grid">
@@ -367,10 +483,10 @@
       <!-- ── Harmony Link ─────────────────── -->
       <div class="project-card">
         <div class="card-header">
-          <div class="card-icon" style="background: var(--gradient-cyan);">🏥</div>
+          <div class="card-icon" style="background: linear-gradient(135deg, #E0F2FE, #BAE6FD);">🏥</div>
           <div class="card-badges">
-            <span class="badge primary">Production</span>
-            <span class="badge">Healthcare</span>
+            <span class="badge primary">운영중</span>
+            <span class="badge">헬스케어</span>
             <span class="badge">AI</span>
           </div>
         </div>
@@ -382,15 +498,15 @@
             돌봄 기록, 투약 관리, 보호자 소통, AI 건강분석을 하나의 플랫폼으로 통합한 멀티플랫폼 관리 시스템입니다.
           </p>
           <div class="card-metrics">
-            <div class="metric"><div class="val">133K+</div><div class="lbl">Lines of Code</div></div>
-            <div class="metric"><div class="val">140+</div><div class="lbl">API Endpoints</div></div>
-            <div class="metric"><div class="val">6</div><div class="lbl">Platforms</div></div>
-            <div class="metric"><div class="val">~6mo</div><div class="lbl">Dev Period</div></div>
+            <div class="metric"><div class="val">133K+</div><div class="lbl">코드 라인</div></div>
+            <div class="metric"><div class="val">140+</div><div class="lbl">API 엔드포인트</div></div>
+            <div class="metric"><div class="val">6</div><div class="lbl">지원 플랫폼</div></div>
+            <div class="metric"><div class="val">~6개월</div><div class="lbl">개발 기간</div></div>
           </div>
           <ul class="features-list">
             <li>AI 건강분석 — OpenAI 연동 건강 트렌드 분석 및 이상 징후 조기 감지</li>
             <li>전자서명 투약 관리 — 법적 효력의 전자서명 기반 투약의뢰서</li>
-            <li>단일 코드베이스 6개 플랫폼 — Flutter로 Android, iOS, Web, macOS, Windows, Linux 지원</li>
+            <li>단일 코드베이스 6개 플랫폼 — Flutter로 Android, iOS, Web, macOS, Windows, Linux</li>
             <li>보호자 포털 — 초대 코드 기반 가족 연결, 실시간 푸시 알림</li>
             <li>완전 자동화 인프라 — AWS CDK IaC, 8개 CI/CD 워크플로우</li>
             <li>6단계 보안 — RBAC, 2FA, WAF, 암호화, AppCheck</li>
@@ -412,14 +528,14 @@
         </div>
       </div>
 
-      <!-- ── Series B (EZ-Approve) ───────── -->
+      <!-- ── Series B ────────────────────── -->
       <div class="project-card">
         <div class="card-header">
-          <div class="card-icon" style="background: var(--gradient-brand);">📋</div>
+          <div class="card-icon" style="background: linear-gradient(135deg, #DBEAFE, #C7D2FE);">📋</div>
           <div class="card-badges">
-            <span class="badge primary">Production</span>
-            <span class="badge">Enterprise</span>
-            <span class="badge">FinTech</span>
+            <span class="badge primary">운영중</span>
+            <span class="badge">엔터프라이즈</span>
+            <span class="badge">핀테크</span>
           </div>
         </div>
         <div class="card-body">
@@ -430,10 +546,10 @@
             펀드 운용, 투자심사, VICS 규제 보고, 전자서명, AI 문서 처리, 실시간 협업 에디터를 통합합니다.
           </p>
           <div class="card-metrics">
-            <div class="metric"><div class="val">90+</div><div class="lbl">DB Entities</div></div>
-            <div class="metric"><div class="val">22</div><div class="lbl">Domain Modules</div></div>
-            <div class="metric"><div class="val">179</div><div class="lbl">DB Migrations</div></div>
-            <div class="metric"><div class="val">40+</div><div class="lbl">Controllers</div></div>
+            <div class="metric"><div class="val">90+</div><div class="lbl">DB 엔티티</div></div>
+            <div class="metric"><div class="val">22</div><div class="lbl">도메인 모듈</div></div>
+            <div class="metric"><div class="val">179</div><div class="lbl">DB 마이그레이션</div></div>
+            <div class="metric"><div class="val">40+</div><div class="lbl">컨트롤러</div></div>
           </div>
           <ul class="features-list">
             <li>펀드 관리 — 24개 엔티티, 16개 컨트롤러로 투자조합 라이프사이클 전체 커버</li>
@@ -465,11 +581,11 @@
       <!-- ── FundFlow ────────────────────── -->
       <div class="project-card">
         <div class="card-header">
-          <div class="card-icon" style="background: var(--gradient-warm);">📊</div>
+          <div class="card-icon" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">📊</div>
           <div class="card-badges">
-            <span class="badge primary">Production</span>
-            <span class="badge">FinTech</span>
-            <span class="badge">Blockchain</span>
+            <span class="badge primary">운영중</span>
+            <span class="badge">핀테크</span>
+            <span class="badge">블록체인</span>
           </div>
         </div>
         <div class="card-body">
@@ -480,10 +596,10 @@
             AI 기반 투자심사보고서 자동 생성, 전자서명, 블록체인 투명성 등 혁신 기능을 결합한 SaaS 플랫폼입니다.
           </p>
           <div class="card-metrics">
-            <div class="metric"><div class="val">14개월</div><div class="lbl">Dev Period</div></div>
-            <div class="metric"><div class="val">8</div><div class="lbl">Core Modules</div></div>
-            <div class="metric"><div class="val">100%</div><div class="lbl">Participation</div></div>
-            <div class="metric"><div class="val">Responsive</div><div class="lbl">Multi-Device</div></div>
+            <div class="metric"><div class="val">14개월</div><div class="lbl">개발 기간</div></div>
+            <div class="metric"><div class="val">8</div><div class="lbl">핵심 모듈</div></div>
+            <div class="metric"><div class="val">100%</div><div class="lbl">참여율</div></div>
+            <div class="metric"><div class="val">반응형</div><div class="lbl">멀티 디바이스</div></div>
           </div>
           <ul class="features-list">
             <li>AI 투자심사보고서 — 데이터 입력만으로 자동 생성, 심사 시간 단축</li>
@@ -510,11 +626,11 @@
       <!-- ── AI-Agent Framework ──────────── -->
       <div class="project-card">
         <div class="card-header">
-          <div class="card-icon" style="background: var(--gradient-green);">🤖</div>
+          <div class="card-icon" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);">🤖</div>
           <div class="card-badges">
-            <span class="badge primary">Active</span>
-            <span class="badge">Internal</span>
-            <span class="badge">AI Framework</span>
+            <span class="badge primary">운영중</span>
+            <span class="badge">사내 도구</span>
+            <span class="badge">AI 프레임워크</span>
           </div>
         </div>
         <div class="card-body">
@@ -525,10 +641,10 @@
             Claude Agent SDK 기반으로 기획부터 배포까지 전체 SDLC를 AI가 지원합니다.
           </p>
           <div class="card-metrics">
-            <div class="metric"><div class="val">14</div><div class="lbl">AI Personas</div></div>
-            <div class="metric"><div class="val">134+</div><div class="lbl">Reusable Skills</div></div>
-            <div class="metric"><div class="val">43+</div><div class="lbl">API Endpoints</div></div>
-            <div class="metric"><div class="val">5+</div><div class="lbl">AI Providers</div></div>
+            <div class="metric"><div class="val">14</div><div class="lbl">AI 페르소나</div></div>
+            <div class="metric"><div class="val">134+</div><div class="lbl">재사용 스킬</div></div>
+            <div class="metric"><div class="val">43+</div><div class="lbl">API 엔드포인트</div></div>
+            <div class="metric"><div class="val">5+</div><div class="lbl">AI 프로바이더</div></div>
           </div>
           <ul class="features-list">
             <li>멀티에이전트 오케스트레이션 — Symphony 러너로 병렬 에이전트 실행</li>
@@ -560,27 +676,31 @@
 </section>
 
 <!-- About -->
-<section id="about" style="padding-top: 2rem;">
+<section id="about" style="padding-top: 1rem;">
   <div class="section-inner">
-    <div class="section-label">About</div>
-    <h2 class="section-title">Our Approach</h2>
+    <div class="section-label">소개</div>
+    <h2 class="section-title">우리의 접근 방식</h2>
     <p class="section-desc">엔지니어링 품질과 AI 혁신의 교차점에서 일합니다.</p>
 
     <div class="about-grid">
       <div class="about-card">
-        <h4>Full-Stack Engineering</h4>
+        <div class="about-icon">⚡</div>
+        <h4>풀스택 엔지니어링</h4>
         <p>Flutter, React/Next.js, NestJS, AWS CDK — 프론트엔드부터 인프라까지 전체 스택을 직접 설계하고 구현합니다. 단일 팀이 일관된 품질로 전체 시스템을 소유합니다.</p>
       </div>
       <div class="about-card">
-        <h4>AI-Native Development</h4>
+        <div class="about-icon">🧠</div>
+        <h4>AI 네이티브 개발</h4>
         <p>OpenAI, Claude, Gemini, Google Document AI 등 최신 AI를 활용한 건강분석, 보고서 자동화, OCR, RAG 파이프라인 등 실제 비즈니스 가치를 창출합니다.</p>
       </div>
       <div class="about-card">
-        <h4>Korean Market Expertise</h4>
+        <div class="about-icon">🇰🇷</div>
+        <h4>한국 시장 전문성</h4>
         <p>카카오/네이버 소셜 로그인, NICE 본인인증, VICS 규제 보고, 한국어 i18n, 공공조달 시스템 연동 등 국내 시장에 특화된 기능을 네이티브로 지원합니다.</p>
       </div>
       <div class="about-card">
-        <h4>Production-Grade Quality</h4>
+        <div class="about-icon">🔒</div>
+        <h4>프로덕션 품질 보증</h4>
         <p>CloudFormation IaC, CI/CD 파이프라인, Trivy 보안스캔, RBAC, WAF, GeoIP — 운영 환경에 즉시 투입 가능한 엔터프라이즈급 품질을 보장합니다.</p>
       </div>
     </div>
@@ -590,8 +710,8 @@
 <!-- Footer -->
 <footer>
   <div class="footer-inner">
-    <svg class="footer-logo"><use href="#bv-logo"/></svg>
-    <p>&copy; 2026 <a href="https://github.com/Blue-Verse" target="_blank" rel="noopener">Blue Verse</a>. AI &middot; Blockchain &middot; Full-Stack Engineering.</p>
+    <svg class="footer-logo" viewBox="0 0 120 140"><use href="#bv-icon"/></svg>
+    <p>&copy; 2026 <a href="https://github.com/Blue-Verse" target="_blank" rel="noopener">Blue Verse</a> &middot; AI · 블록체인 · 풀스택 엔지니어링</p>
   </div>
 </footer>
 
