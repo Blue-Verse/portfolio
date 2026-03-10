@@ -1,547 +1,230 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLUEVERSE — 포트폴리오</title>
-  <meta name="description" content="Blue Verse 프로젝트 포트폴리오. AI · 블록체인 기반 소프트웨어 개발 전문 기업.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      /* Brand — used sparingly as accent only */
-      --brand: #012481;
-      --brand-light: #1a4fc4;
-
-      /* Warm neutral palette */
-      --bg: #F5F3EF;
-      --text: #2C2C2E;
-      --text-sub: #58585B;
-      --text-dim: #8E8E93;
-
-      /* Liquid glass — warm tint */
-      --glass: rgba(255, 253, 250, 0.55);
-      --glass-hover: rgba(255, 253, 250, 0.72);
-      --glass-border: rgba(255, 255, 255, 0.65);
-      --glass-outer: rgba(0, 0, 0, 0.04);
-      --glass-blur: blur(20px) saturate(1.5);
-      --shadow: 0 1px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
-      --shadow-up: 0 8px 36px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
-      --inner-light: inset 0 1px 0 rgba(255,255,255,0.75);
-
-      --radius: 20px;
-      --radius-sm: 12px;
-      --max-w: 1100px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Warm mesh background */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -1;
-      background:
-        radial-gradient(ellipse 70% 50% at 15% 15%, rgba(232, 218, 196, 0.30) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 85% 25%, rgba(200, 210, 230, 0.18) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 60% at 50% 85%, rgba(220, 215, 205, 0.25) 0%, transparent 55%),
-        linear-gradient(180deg, #F2EFE9 0%, #F5F3EF 40%, #F7F5F1 100%);
-    }
-
-    /* ── Nav ─────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(245, 243, 239, 0.60);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-    .nav-inner {
-      max-width: var(--max-w); margin: 0 auto;
-      padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 56px;
-    }
-    .nav-logo { height: 22px; display: block; }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a {
-      color: var(--text-sub); text-decoration: none; font-size: 0.84rem;
-      font-weight: 500; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* ── Hero ────────────────────────────── */
-    .hero {
-      min-height: 88vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-    }
-    .hero-logo { width: 88px; margin-bottom: 2rem; }
-    .hero-badge {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      font-size: 0.76rem; font-weight: 500; color: var(--text-sub);
-      background: var(--glass);
-      backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow), var(--inner-light);
-      margin-bottom: 2rem;
-    }
-    .hero h1 {
-      font-size: clamp(2.1rem, 5vw, 3.5rem);
-      font-weight: 800; letter-spacing: -0.03em;
-      line-height: 1.25; margin-bottom: 1.25rem;
-      color: var(--text);
-    }
-    .hero h1 em {
-      font-style: normal; color: var(--brand);
-    }
-    .hero > p {
-      font-size: 1rem; color: var(--text-sub);
-      max-width: 480px; margin-bottom: 3rem; line-height: 1.85;
-    }
-
-    /* ── Stats bar ───────────────────────── */
-    .stats-bar {
-      display: inline-flex; flex-wrap: wrap; justify-content: center;
-      background: var(--glass);
-      backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      box-shadow: var(--shadow), var(--inner-light);
-      overflow: hidden;
-    }
-    .stat { padding: 1.1rem 2rem; text-align: center; position: relative; }
-    .stat + .stat::before {
-      content: '';
-      position: absolute; left: 0; top: 22%; height: 56%;
-      width: 1px; background: rgba(0,0,0,0.06);
-    }
-    .stat .num { font-size: 1.5rem; font-weight: 800; color: var(--brand); display: block; }
-    .stat .lbl { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; font-weight: 500; }
-
-    /* ── Section ─────────────────────────── */
-    section { padding: 4.5rem 2rem; }
-    .section-inner { max-width: var(--max-w); margin: 0 auto; }
-    .section-label {
-      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--brand-light); margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 800; letter-spacing: -0.02em;
-      margin-bottom: 0.6rem;
-    }
-    .section-desc { color: var(--text-sub); max-width: 480px; margin-bottom: 2.5rem; font-size: 0.92rem; }
-
-    /* ── Project Cards ───────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
-      gap: 1.25rem;
-    }
-    .project-card {
-      background: var(--glass);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow), var(--inner-light);
-      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s;
-    }
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-up), var(--inner-light);
-    }
-    .card-header {
-      padding: 1.5rem 1.5rem 0;
-      display: flex; align-items: flex-start; justify-content: space-between;
-    }
-    .card-icon {
-      width: 42px; height: 42px; border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.25rem;
-    }
-    .card-badges { display: flex; gap: 0.35rem; flex-wrap: wrap; justify-content: flex-end; }
-    .badge {
-      padding: 0.175rem 0.55rem;
-      border-radius: 999px; font-size: 0.62rem; font-weight: 600;
-      color: var(--text-sub); background: rgba(255,255,255,0.5);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    .badge.primary { color: var(--brand); background: rgba(1,36,129,0.05); border-color: rgba(1,36,129,0.10); }
-    .card-body { padding: 1.1rem 1.5rem 1.5rem; }
-    .card-body h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.15rem; }
-    .card-body .subtitle { font-size: 0.82rem; color: var(--text-sub); margin-bottom: 0.85rem; }
-    .card-body .desc { font-size: 0.82rem; color: var(--text-sub); line-height: 1.7; margin-bottom: 1.1rem; }
-
-    .card-metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
-      gap: 0.6rem; margin-bottom: 1.1rem;
-    }
-    .metric {
-      padding: 0.55rem 0.65rem; border-radius: 10px;
-      background: rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(0, 0, 0, 0.03);
-    }
-    .metric .val { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-    .metric .lbl { font-size: 0.6rem; color: var(--text-dim); margin-top: 1px; }
-
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-    .tech-tag {
-      padding: 0.175rem 0.5rem;
-      border-radius: 5px; font-size: 0.62rem; font-weight: 500;
-      background: rgba(0, 0, 0, 0.025); color: var(--text-sub);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .features-list { list-style: none; margin-bottom: 1.1rem; }
-    .features-list li {
-      font-size: 0.8rem; color: var(--text-sub);
-      padding: 0.25rem 0; padding-left: 1rem;
-      position: relative; line-height: 1.6;
-    }
-    .features-list li::before {
-      content: '';
-      position: absolute; left: 0; top: 0.65em;
-      width: 4px; height: 4px; border-radius: 50%;
-      background: var(--text-dim);
-    }
-
-    /* ── About ───────────────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.1rem;
-    }
-    .about-card {
-      padding: 1.5rem;
-      background: var(--glass);
-      backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow), var(--inner-light);
-      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
-    }
-    .about-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-up), var(--inner-light); }
-    .about-icon {
-      width: 34px; height: 34px; border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; margin-bottom: 0.85rem;
-      background: rgba(0,0,0,0.03);
-    }
-    .about-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .about-card p { font-size: 0.82rem; color: var(--text-sub); line-height: 1.7; }
-
-    /* ── Footer ──────────────────────────── */
-    footer { padding: 2.5rem 2rem; text-align: center; }
-    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
-    .footer-logo { height: 16px; opacity: 0.3; }
-    footer p { color: var(--text-dim); font-size: 0.75rem; }
-    footer a { color: var(--brand-light); text-decoration: none; }
-
-    /* ── Responsive ──────────────────────── */
-    @media (max-width: 640px) {
-      .stats-bar { flex-direction: column; }
-      .stat + .stat::before { display: none; }
-      .stat { padding: 0.65rem 1.5rem; }
-      .card-header { flex-direction: column; gap: 0.6rem; }
-      .card-badges { justify-content: flex-start; }
-      .nav-links { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Verse Portfolio | 신뢰를 설계하는 프리미엄 디지털 프로덕트 포트폴리오</title>
+    <meta name="description" content="Blue Verse가 설계하고 구축한 AI, 핀테크, 헬스케어, 글로벌 서비스 포트폴리오를 한국어 중심으로 소개합니다.">
+    <meta property="og:title" content="Blue Verse Portfolio">
+    <meta property="og:description" content="실전 구축 사례로 증명하는 Blue Verse의 디지털 프로덕트 역량">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/BLUEVERSE.png">
+    <meta name="theme-color" content="#eef4ff">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="page-shell">
+        <div class="ambient ambient-primary" aria-hidden="true"></div>
+        <div class="ambient ambient-secondary" aria-hidden="true"></div>
+        <div class="ambient ambient-grid" aria-hidden="true"></div>
 
-<!-- Nav -->
-<nav>
-  <div class="nav-inner">
-    <a href="#">
-      <img src="assets/logo-horizontal.png" alt="BLUEVERSE" class="nav-logo">
-    </a>
-    <ul class="nav-links">
-      <li><a href="#projects">프로젝트</a></li>
-      <li><a href="#about">소개</a></li>
-      <li><a href="https://github.com/Blue-Verse" target="_blank" rel="noopener">GitHub</a></li>
-    </ul>
-  </div>
-</nav>
+        <header class="site-header">
+            <div class="container">
+                <nav class="nav glass-panel" aria-label="주요 탐색">
+                    <a class="brand" href="#top" aria-label="Blue Verse 홈으로 이동">
+                        <img class="brand-mark" src="assets/1Asset 3@3x.png" alt="Blue Verse 심볼">
+                        <img class="brand-wordmark" src="assets/BLUEVERSE.png" alt="BLUEVERSE">
+                    </a>
+                    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="nav-menu" id="nav-menu">
+                        <a href="#featured-projects">대표 프로젝트</a>
+                        <a href="#all-projects">전체 포트폴리오</a>
+                        <a href="#capabilities">전달 역량</a>
+                        <a href="#principles">작업 원칙</a>
+                        <a href="#contact">협업 문의</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
-<!-- Hero -->
-<header class="hero">
-  <img src="assets/logo-stacked.png" alt="BLUEVERSE" class="hero-logo">
-  <span class="hero-badge">AI · 블록체인 · 풀스택 엔지니어링</span>
-  <h1>
-    <em>지능형</em> 소프트웨어를<br>
-    설계합니다
-  </h1>
-  <p>AI와 블록체인 기술을 결합한 소프트웨어 개발 전문 기업,<br>Blue Verse의 프로젝트 포트폴리오입니다.</p>
+        <main id="top">
+            <section class="hero section">
+                <div class="container hero-grid">
+                    <div class="hero-copy reveal">
+                        <p class="eyebrow">
+                            <img src="assets/1Asset 3@3x.png" alt="" aria-hidden="true">
+                            검증된 구축 사례 기반 포트폴리오
+                        </p>
+                        <h1>
+                            신뢰가 필요한 서비스에<br>
+                            더 강한 팀의 결과물
+                        </h1>
+                        <p class="hero-lead">
+                            Blue Verse는 결재, 규제 보고, 권한, 운영 정합성이 중요한 제품을 실제 서비스 수준으로 구현해 왔습니다.
+                            그 과정에서 AI 자동화, 멀티플랫폼, 글로벌 서비스, Web3까지도 운영 가능한 구조로 연결했습니다.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="#featured-projects">대표 프로젝트 보기</a>
+                            <a class="button button-secondary" href="#contact">협업 방식 확인</a>
+                        </div>
+                        <ul class="hero-points">
+                            <li>한국 시장 중심 B2B / 엔터프라이즈 실적 우선 노출</li>
+                            <li>정량 지표와 문제 해결 방식까지 함께 제시</li>
+                            <li>페이지 이탈 없이 프로젝트 상세 확인 가능</li>
+                        </ul>
+                    </div>
 
-  <div class="stats-bar">
-    <div class="stat"><span class="num">4</span><span class="lbl">프로젝트 납품</span></div>
-    <div class="stat"><span class="num">300K+</span><span class="lbl">코드 라인</span></div>
-    <div class="stat"><span class="num">10+</span><span class="lbl">지원 플랫폼</span></div>
-    <div class="stat"><span class="num">5+</span><span class="lbl">AI 연동</span></div>
-  </div>
-</header>
+                    <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
+                        <div class="hero-stage glass-panel">
+                            <img class="hero-stage-logo" src="assets/BLUEVERSE.png" alt="">
+                            <img class="hero-stage-orb" src="assets/hero_glass_mac.png" alt="">
+                            <div class="hero-stage-card glass-panel">
+                                <p class="mini-label">포트폴리오 범위</p>
+                                <strong>6개 실전 프로젝트</strong>
+                                <span>핀테크 · 헬스케어 · AI · 글로벌 서비스 · Web3</span>
+                            </div>
+                            <div class="hero-stage-card hero-stage-card-secondary glass-panel">
+                                <p class="mini-label">실행 신호</p>
+                                <strong>1,652 PR / 179 마이그레이션 / 140+ API</strong>
+                                <span>실제 코드베이스 분석 기반 수치만 반영</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- Projects -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-label">포트폴리오</div>
-    <h2 class="section-title">주요 프로젝트</h2>
-    <p class="section-desc">기획부터 배포까지, 풀스택 엔지니어링으로 완성한 프로젝트들입니다.</p>
+            <section class="trust-strip section section-compact">
+                <div class="container">
+                    <div class="trust-grid glass-panel reveal" id="trust-metrics"></div>
+                </div>
+            </section>
 
-    <div class="projects-grid">
+            <section class="section featured-projects" id="featured-projects">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker">대표 프로젝트</p>
+                        <h2>한국 시장에서 신뢰를 설명하기 가장 좋은 사례</h2>
+                        <p>
+                            규제, 승인, 다중 이해관계자, 운영 복잡도가 높은 프로젝트를 전면에 배치했습니다.
+                            방문자는 가장 현실적인 업무 난이도부터 확인할 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="featured-layout" id="featured-projects-grid"></div>
+                </div>
+            </section>
 
-      <!-- Harmony Link -->
-      <div class="project-card">
-        <div class="card-header">
-          <div class="card-icon" style="background: #E8F5E9;">🏥</div>
-          <div class="card-badges">
-            <span class="badge primary">운영중</span>
-            <span class="badge">헬스케어</span>
-            <span class="badge">AI</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>Harmony Link</h3>
-          <div class="subtitle">하모니 링크 — 노인 주간보호센터 통합 관리 플랫폼</div>
-          <p class="desc">
-            종사자 · 어르신 · 보호자를 하나로 연결하는 스마트 돌봄 솔루션.
-            돌봄 기록, 투약 관리, 보호자 소통, AI 건강분석을 하나의 플랫폼으로 통합한 멀티플랫폼 관리 시스템입니다.
-          </p>
-          <div class="card-metrics">
-            <div class="metric"><div class="val">133K+</div><div class="lbl">코드 라인</div></div>
-            <div class="metric"><div class="val">140+</div><div class="lbl">API 엔드포인트</div></div>
-            <div class="metric"><div class="val">6</div><div class="lbl">지원 플랫폼</div></div>
-            <div class="metric"><div class="val">~6개월</div><div class="lbl">개발 기간</div></div>
-          </div>
-          <ul class="features-list">
-            <li>AI 건강분석 — OpenAI 연동 건강 트렌드 분석 및 이상 징후 조기 감지</li>
-            <li>전자서명 투약 관리 — 법적 효력의 전자서명 기반 투약의뢰서</li>
-            <li>단일 코드베이스 6개 플랫폼 — Flutter로 Android, iOS, Web, macOS, Windows, Linux</li>
-            <li>보호자 포털 — 초대 코드 기반 가족 연결, 실시간 푸시 알림</li>
-            <li>완전 자동화 인프라 — AWS CDK IaC, 8개 CI/CD 워크플로우</li>
-            <li>6단계 보안 — RBAC, 2FA, WAF, 암호화, AppCheck</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tech-tag">Flutter 3.35</span>
-            <span class="tech-tag">Dart</span>
-            <span class="tech-tag">Next.js 13</span>
-            <span class="tech-tag">NestJS 10</span>
-            <span class="tech-tag">TypeORM</span>
-            <span class="tech-tag">MySQL 8.0</span>
-            <span class="tech-tag">AWS CDK</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Firebase</span>
-            <span class="tech-tag">OpenAI</span>
-            <span class="tech-tag">MUI v5</span>
-            <span class="tech-tag">BLoC</span>
-          </div>
-        </div>
-      </div>
+            <section class="section portfolio-collection" id="all-projects">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker">전체 포트폴리오</p>
+                        <h2>산업과 문제 정의가 달라도, 완성도 기준은 동일하게</h2>
+                        <p>
+                            모든 프로젝트 카드는 같은 데이터 모델에서 렌더링됩니다.
+                            각 항목을 누르면 문제 정의, 해결 방식, 주요 성과를 상세히 볼 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="portfolio-grid" id="portfolio-grid"></div>
+                </div>
+            </section>
 
-      <!-- Series B -->
-      <div class="project-card">
-        <div class="card-header">
-          <div class="card-icon" style="background: #FFF3E0;">📋</div>
-          <div class="card-badges">
-            <span class="badge primary">운영중</span>
-            <span class="badge">엔터프라이즈</span>
-            <span class="badge">핀테크</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>Series B</h3>
-          <div class="subtitle">기업 결재 · 펀드 관리 · VICS 컴플라이언스 플랫폼</div>
-          <p class="desc">
-            22개 도메인 모듈, 90+ 엔티티로 구성된 대규모 엔터프라이즈 금융 플랫폼.
-            펀드 운용, 투자심사, VICS 규제 보고, 전자서명, AI 문서 처리, 실시간 협업 에디터를 통합합니다.
-          </p>
-          <div class="card-metrics">
-            <div class="metric"><div class="val">90+</div><div class="lbl">DB 엔티티</div></div>
-            <div class="metric"><div class="val">22</div><div class="lbl">도메인 모듈</div></div>
-            <div class="metric"><div class="val">179</div><div class="lbl">DB 마이그레이션</div></div>
-            <div class="metric"><div class="val">40+</div><div class="lbl">컨트롤러</div></div>
-          </div>
-          <ul class="features-list">
-            <li>펀드 관리 — 24개 엔티티, 16개 컨트롤러로 투자조합 라이프사이클 전체 커버</li>
-            <li>VICS 컴플라이언스 — SFTP 기반 규제 데이터 교환, 18개 엔티티</li>
-            <li>AI 문서 처리 — Google Document AI (OCR) + ChatGPT + Cloud DLP</li>
-            <li>실시간 협업 — Yjs WebSocket 기반 동시 문서 편집</li>
-            <li>CloudFormation IaC — VPC, ALB, EC2, RDS, S3 전체 인프라 코드화</li>
-            <li>다중 보안 — JWT + 2FA + NICE KYC + GeoIP + RBAC 방어 심층</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tech-tag">Next.js 13</span>
-            <span class="tech-tag">NestJS 10</span>
-            <span class="tech-tag">MUI v5</span>
-            <span class="tech-tag">Redux Toolkit</span>
-            <span class="tech-tag">React Query</span>
-            <span class="tech-tag">MySQL 8.0</span>
-            <span class="tech-tag">AWS (ALB/EC2/RDS)</span>
-            <span class="tech-tag">CloudFormation</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Google Document AI</span>
-            <span class="tech-tag">ChatGPT</span>
-            <span class="tech-tag">Yjs</span>
-            <span class="tech-tag">MinIO</span>
-            <span class="tech-tag">NICE KYC</span>
-          </div>
-        </div>
-      </div>
+            <section class="section capabilities" id="capabilities">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker">전달 역량</p>
+                        <h2>Blue Verse가 전달하는 것은 화면이 아니라 운영 가능한 제품입니다</h2>
+                    </div>
+                    <div class="capability-grid">
+                        <article class="capability-card glass-panel reveal">
+                            <p class="mini-label">엔터프라이즈 워크플로우</p>
+                            <h3>복잡한 승인과 운영 구조를 제품으로 정리</h3>
+                            <p>전자결재, 규제 보고, 협업 문서, 멀티 역할 권한처럼 기업이 실제로 쓰는 복잡도를 설계 단계에서 흡수합니다.</p>
+                        </article>
+                        <article class="capability-card glass-panel reveal reveal-delay-1">
+                            <p class="mini-label">AI 제품화</p>
+                            <h3>AI를 기능이 아닌 업무 흐름에 연결</h3>
+                            <p>AI 보고서 생성, 건강 분석, 에이전트 오케스트레이션처럼 사용자가 체감하는 가치 흐름 안에서 AI를 작동시킵니다.</p>
+                        </article>
+                        <article class="capability-card glass-panel reveal reveal-delay-2">
+                            <p class="mini-label">시스템 신뢰성</p>
+                            <h3>운영과 검증까지 고려한 기술 구조</h3>
+                            <p>권한, 로그, 배포, 품질 게이트, 인프라 코드화까지 운영 신뢰를 만드는 요소를 초기 구현 안에 포함합니다.</p>
+                        </article>
+                        <article class="capability-card glass-panel reveal reveal-delay-3">
+                            <p class="mini-label">시장 확장 경험</p>
+                            <h3>국내형 B2B부터 글로벌 서비스까지 확장</h3>
+                            <p>한국 핀테크와 헬스케어, 베트남 네트워킹, 글로벌 Web3 사례를 모두 다뤄 본 실행 경험을 갖추고 있습니다.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
 
-      <!-- FundFlow -->
-      <div class="project-card">
-        <div class="card-header">
-          <div class="card-icon" style="background: #FBE9E7;">📊</div>
-          <div class="card-badges">
-            <span class="badge primary">운영중</span>
-            <span class="badge">핀테크</span>
-            <span class="badge">블록체인</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>FundFlow</h3>
-          <div class="subtitle">투자조합 관리 · 업무 자동화 올인원 플랫폼</div>
-          <p class="desc">
-            GP · LP · 스타트업을 연결하는 투자 라이프사이클 자동화 솔루션.
-            AI 기반 투자심사보고서 자동 생성, 전자서명, 블록체인 투명성 등 혁신 기능을 결합한 SaaS 플랫폼입니다.
-          </p>
-          <div class="card-metrics">
-            <div class="metric"><div class="val">14개월</div><div class="lbl">개발 기간</div></div>
-            <div class="metric"><div class="val">8</div><div class="lbl">핵심 모듈</div></div>
-            <div class="metric"><div class="val">100%</div><div class="lbl">참여율</div></div>
-            <div class="metric"><div class="val">반응형</div><div class="lbl">멀티 디바이스</div></div>
-          </div>
-          <ul class="features-list">
-            <li>AI 투자심사보고서 — 데이터 입력만으로 자동 생성, 심사 시간 단축</li>
-            <li>투자 성과 대시보드 — 포트폴리오별 실시간 성과 추적</li>
-            <li>전자서명 내장 — 투자의뢰서 및 계약서 법적 효력 확보</li>
-            <li>블록체인 투명성 — NFT 기술로 투자 내역 불변 기록</li>
-            <li>투자자 맞춤 추천 — 성향 기반 투자 기회 자동 매칭</li>
-            <li>문서 자동완성 — 반복 투자 문서 템플릿화 및 자동완성</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MongoDB</span>
-            <span class="tech-tag">AWS</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">NFT/Blockchain</span>
-            <span class="tech-tag">AI</span>
-            <span class="tech-tag">Figma</span>
-          </div>
-        </div>
-      </div>
+            <section class="section principles" id="principles">
+                <div class="container principles-grid">
+                    <div class="principles-copy reveal">
+                        <p class="section-kicker">작업 원칙</p>
+                        <h2>보여주기 위한 디자인보다, 신뢰를 남기는 결과를 우선합니다</h2>
+                        <p>
+                            포트폴리오에 보이는 수치는 과장된 홍보 문구가 아니라 실제 코드베이스 분석 문서에서 끌어온 정량 정보입니다.
+                            설계와 구현, 품질과 운영을 한 흐름으로 다루는 방식이 Blue Verse의 기준입니다.
+                        </p>
+                    </div>
+                    <div class="principles-cards">
+                        <article class="principle-card glass-panel reveal">
+                            <span>01</span>
+                            <h3>문제를 먼저 정의합니다</h3>
+                            <p>업무 구조와 이해관계자를 먼저 정리하고, 기능은 그 다음에 배치합니다.</p>
+                        </article>
+                        <article class="principle-card glass-panel reveal reveal-delay-1">
+                            <span>02</span>
+                            <h3>운영 가능한 구조로 만듭니다</h3>
+                            <p>권한, 데이터 정합성, 장애 대응, 배포 반복성까지 제품 범위로 간주합니다.</p>
+                        </article>
+                        <article class="principle-card glass-panel reveal reveal-delay-2">
+                            <span>03</span>
+                            <h3>실제 성과로 설명합니다</h3>
+                            <p>PR 수, 모듈 수, 플랫폼 수, API 수 같은 검증 가능한 지표를 중심으로 설명합니다.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
 
-      <!-- AI-Agent Framework -->
-      <div class="project-card">
-        <div class="card-header">
-          <div class="card-icon" style="background: #EDE7F6;">🤖</div>
-          <div class="card-badges">
-            <span class="badge primary">운영중</span>
-            <span class="badge">사내 도구</span>
-            <span class="badge">AI 프레임워크</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>AI-Agent Framework</h3>
-          <div class="subtitle">AI 네이티브 개발 프레임워크 & 오케스트레이션 엔진</div>
-          <p class="desc">
-            14개 AI 페르소나, 134+ 재사용 스킬, 멀티에이전트 오케스트레이션을 갖춘 사내 AI 개발 프레임워크.
-            Claude Agent SDK 기반으로 기획부터 배포까지 전체 SDLC를 AI가 지원합니다.
-          </p>
-          <div class="card-metrics">
-            <div class="metric"><div class="val">14</div><div class="lbl">AI 페르소나</div></div>
-            <div class="metric"><div class="val">134+</div><div class="lbl">재사용 스킬</div></div>
-            <div class="metric"><div class="val">43+</div><div class="lbl">API 엔드포인트</div></div>
-            <div class="metric"><div class="val">5+</div><div class="lbl">AI 프로바이더</div></div>
-          </div>
-          <ul class="features-list">
-            <li>멀티에이전트 오케스트레이션 — Symphony 러너로 병렬 에이전트 실행</li>
-            <li>React 19 대시보드 — 실시간 WebSocket 모니터링</li>
-            <li>RAG 파이프라인 — pgvector 기반 벡터 검색 + Gemini 임베딩</li>
-            <li>k-proposal — 한국 공공 제안서 자동 작성 SaaS (활성 프로젝트)</li>
-            <li>MCP 서버 통합 — Playwright, Linear, GitHub, shadcn 등 7+ 서버</li>
-            <li>품질 게이트 — 15+ 자동화 검증 스크립트</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tech-tag">Claude Agent SDK</span>
-            <span class="tech-tag">React 19</span>
-            <span class="tech-tag">Hono</span>
-            <span class="tech-tag">Vite 6</span>
-            <span class="tech-tag">Tailwind 4</span>
-            <span class="tech-tag">Express 5</span>
-            <span class="tech-tag">Prisma</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">pgvector</span>
-            <span class="tech-tag">BullMQ</span>
-            <span class="tech-tag">FastAPI</span>
-            <span class="tech-tag">Gemini</span>
-          </div>
-        </div>
-      </div>
+            <section class="section contact" id="contact">
+                <div class="container">
+                    <div class="contact-panel glass-panel reveal">
+                        <div>
+                            <p class="section-kicker">다음 단계</p>
+                            <h2>새로운 제품을 시작하거나, 복잡한 기존 서비스를 정리해야 한다면</h2>
+                            <p>
+                                Blue Verse는 신뢰가 중요한 서비스에서 요구되는 구조적 복잡도를 다뤄 본 팀입니다.
+                                프로젝트 맥락이 있다면 공개 가능한 범위부터 함께 정리할 수 있습니다.
+                            </p>
+                        </div>
+                        <div class="contact-actions">
+                            <a class="button button-primary" href="https://github.com/Blue-Verse" target="_blank" rel="noreferrer">GitHub 조직 보기</a>
+                            <a class="button button-secondary" href="#featured-projects">대표 사례 다시 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <div class="footer-brand">
+                    <img src="assets/BLUEVERSE.png" alt="BLUEVERSE">
+                    <p>신뢰가 필요한 디지털 제품을 설계하고 구현하는 팀</p>
+                </div>
+                <p class="footer-meta">Copyright © 2026 Blue Verse. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
-  </div>
-</section>
 
-<!-- About -->
-<section id="about" style="padding-top: 1rem;">
-  <div class="section-inner">
-    <div class="section-label">소개</div>
-    <h2 class="section-title">우리의 접근 방식</h2>
-    <p class="section-desc">엔지니어링 품질과 AI 혁신의 교차점에서 일합니다.</p>
-
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-icon">⚡</div>
-        <h4>풀스택 엔지니어링</h4>
-        <p>Flutter, React/Next.js, NestJS, AWS CDK — 프론트엔드부터 인프라까지 전체 스택을 직접 설계하고 구현합니다.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🧠</div>
-        <h4>AI 네이티브 개발</h4>
-        <p>OpenAI, Claude, Gemini, Document AI 등 최신 AI를 활용해 실제 비즈니스 가치를 창출하는 기능을 구현합니다.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🇰🇷</div>
-        <h4>한국 시장 전문성</h4>
-        <p>카카오/네이버 로그인, NICE 본인인증, VICS 규제 보고, 공공조달 연동 등 국내 시장 특화 기능을 지원합니다.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🔒</div>
-        <h4>프로덕션 품질 보증</h4>
-        <p>CloudFormation IaC, CI/CD, Trivy 보안스캔, RBAC, WAF — 엔터프라이즈급 운영 품질을 보장합니다.</p>
-      </div>
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+        <div class="project-modal-backdrop" data-close-modal></div>
+        <section class="project-modal-dialog glass-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabindex="-1">
+            <button class="modal-close" type="button" data-close-modal aria-label="프로젝트 상세 닫기">닫기</button>
+            <div class="project-modal-body" id="project-modal-body"></div>
+        </section>
     </div>
-  </div>
-</section>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <img src="assets/logo-horizontal.png" alt="BLUEVERSE" class="footer-logo">
-    <p>&copy; 2026 <a href="https://github.com/Blue-Verse" target="_blank" rel="noopener">Blue Verse</a> · AI · 블록체인 · 풀스택 엔지니어링</p>
-  </div>
-</footer>
+    <noscript>
+        <div class="noscript-banner">이 포트폴리오는 프로젝트 데이터를 렌더링하기 위해 JavaScript가 필요합니다.</div>
+    </noscript>
 
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
