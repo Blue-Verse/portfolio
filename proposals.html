@@ -448,15 +448,7 @@
                 rel: 'noopener',
                 textContent: '제안서 보기'
             });
-            const ghBtn = createEl('a', {
-                className: 'button button-secondary',
-                href: 'https://github.com/Blue-Verse/' + p.slug,
-                target: '_blank',
-                rel: 'noopener',
-                textContent: 'GitHub'
-            });
             actions.appendChild(viewBtn);
-            actions.appendChild(ghBtn);
             card.appendChild(actions);
 
             grid.appendChild(card);
