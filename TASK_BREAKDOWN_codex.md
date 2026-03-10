@@ -1,30 +1,27 @@
 # TASK_BREAKDOWN_codex
 
-## 1. 설계 정리
+## 1. 구조 재정리
 
-- `ui-ux-pro-max` 디자인 시스템 결과를 현재 요구사항에 맞게 해석
-- 리디자인 섹션 구조 확정
-- CSS/JS 분리 기준 확정
+- 현재 과밀한 섹션과 패널 구조를 줄인다
+- Home / About의 최종 섹션 수를 확정한다
+- 헤더 워드마크 중심 구조를 정한다
 
-## 2. 프런트엔드 구조 개편
+## 2. 콘텐츠 재작성
 
-- CSS 파일 분리
-- 공통 shell 스타일 이동
-- 포트폴리오/어바웃 전용 스타일 분리
+- Home hero 카피 재작성
+- 섹션 제목과 보조 문장 재작성
+- About hero / positioning / CTA 카피 재작성
+- 카드에서 보여 줄 문장 톤을 차분하게 조정
 
-## 3. 메인 페이지 재구성
+## 3. 프런트엔드 구현
 
-- hero / trust / flagship / library / method / cta 순서 재구성
-- featured와 archive 렌더링 규칙 분리
-- 필터 UI 추가
+- 헤더와 푸터 로고 구조 수정
+- shell / portfolio / about CSS 재조정
+- library / featured 렌더링 정보량 축소
+- 모바일 메뉴와 모바일 간격 재점검
 
-## 4. About 페이지 재구성
-
-- hero / principles / matrix / timeline / coverage / cta 순서 재구성
-- 파생 통계 재배치
-
-## 5. 검증
+## 4. 검증
 
 - 정적 응답 확인
-- 데스크톱/모바일 캡처
-- 동작 오류 확인
+- 뷰포트 캡처 확인
+- 메뉴 / 모달 / 필터 동작 확인

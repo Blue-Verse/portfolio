@@ -4,7 +4,7 @@ function buildModalMarkup(project) {
     return `
         <header class="modal-header">
             <div>
-                <p class="eyebrow">Project Detail</p>
+                <p class="eyebrow">프로젝트 상세</p>
                 <h2 id="modal-title">${project.titleKo}</h2>
                 <p class="modal-subtitle">${project.titleEn}</p>
             </div>

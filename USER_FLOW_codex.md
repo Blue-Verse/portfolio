@@ -1,20 +1,15 @@
 # USER_FLOW_codex
 
-## 메인 페이지 플로우
+## Home Flow
 
-1. Hero에서 팀의 포지션을 읽는다
-2. Trust Ledger에서 범위와 신호를 본다
-3. Flagship Case Study에서 대표 사례 1건을 깊게 본다
-4. Secondary Featured 2건으로 비교 감각을 얻는다
-5. Filterable Project Library에서 관련 사례를 고른다
-6. 상세 modal에서 구현 범위와 지표를 확인한다
-7. About 또는 CTA로 이동한다
+1. 큰 워드마크와 짧은 헤드라인으로 브랜드와 핵심 포지션 인지
+2. 대표 사례 3건에서 신뢰 판단
+3. 전체 프로젝트 라이브러리에서 유사 사례 탐색
+4. 필요 시 About 또는 상세 모달로 이동
 
-## About 페이지 플로우
+## About Flow
 
-1. Team Thesis에서 팀 포지션을 읽는다
-2. Principles Band에서 문제 해결 방식의 성격을 이해한다
-3. Domain Matrix에서 어떤 문제군에 강한지 본다
-4. Collaboration Timeline에서 협업 흐름을 이해한다
-5. Coverage Metrics로 범위를 확인한다
-6. 포트폴리오로 돌아가 관련 사례를 확인한다
+1. 팀의 포지션을 한 문장으로 이해
+2. 어떤 문제를 다루는지 확인
+3. 협업 방식과 범위 확인
+4. 다시 사례 페이지로 돌아가 구체 사례 탐색

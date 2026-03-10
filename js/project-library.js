@@ -16,7 +16,7 @@ function setRenderedItemsVisible(container) {
     });
 }
 
-function renderHeroProofCard(projects, featuredProjects) {
+function renderHeroProofCard(projects) {
     const container = document.querySelector("#hero-proof-card");
     if (!container) {
         return;
@@ -26,13 +26,9 @@ function renderHeroProofCard(projects, featuredProjects) {
     const sectors = new Set(projects.map((project) => project.sector)).size;
 
     container.innerHTML = `
-        <p class="eyebrow">검토 범위</p>
-        <h2>한국 실무형 사례를 앞에 두고, 전체 12건을 비교 가능한 라이브러리로 정리했습니다.</h2>
-        <ul class="hero-proof-list">
-            <li>대표 사례는 규제, 결재, 현장 운영 프로젝트를 우선 배치했습니다</li>
-            <li>전체 사례는 문제 유형 기준 필터로 다시 탐색할 수 있습니다</li>
-            <li>각 사례는 한 줄 설명, 핵심 난이도, 대표 근거로 빠르게 읽을 수 있습니다</li>
-        </ul>
+        <p class="eyebrow">핵심 범위</p>
+        <h2>12개 사례를 운영 구조 기준으로 다시 정리했습니다.</h2>
+        <p>대표 사례는 신뢰 판단에 바로 연결되는 프로젝트를 앞에 두고, 나머지 사례는 같은 기준으로 비교할 수 있게 구성했습니다.</p>
         <div class="hero-proof-metrics">
             <article class="hero-proof-metric">
                 <strong>${projects.length}개</strong>
@@ -46,18 +42,6 @@ function renderHeroProofCard(projects, featuredProjects) {
                 <strong>${sectors}개</strong>
                 <span>산업 카테고리</span>
             </article>
-        </div>
-        <div class="hero-proof-preview" aria-label="대표 사례 미리보기">
-            ${featuredProjects
-                .map(
-                    (project) => `
-                        <button class="hero-proof-preview-item" type="button" data-project-trigger="${project.slug}">
-                            <span>${project.titleKo}</span>
-                            <strong>${project.impactMetrics[0]}</strong>
-                        </button>
-                    `
-                )
-                .join("")}
         </div>
     `;
 }
@@ -75,33 +59,26 @@ function renderFlagshipCase(featuredProjects) {
                 ${renderProjectShowcase(project, { variant: "flagship" })}
             </div>
             <div class="flagship-body">
+                <p class="flagship-label">대표 사례 01</p>
                 <div class="flagship-header">
                     <div>
-                        <p class="eyebrow">Flagship Case</p>
                         <h3>${project.titleKo}</h3>
                         <p class="flagship-subtitle">${project.tagline}</p>
                     </div>
                     <div class="pill-row">${createProjectPills(project, [project.period])}</div>
                 </div>
                 <p class="flagship-summary">${project.summary}</p>
-                <div class="flagship-kpi">
-                    <span>대표 근거</span>
-                    <strong>${project.impactMetrics[0]}</strong>
-                </div>
-                <div class="flagship-story-grid">
-                    <article class="surface-muted">
-                        <span>핵심 난이도</span>
-                        <p>${project.challenge}</p>
-                    </article>
-                    <article class="surface-muted">
-                        <span>구축 방식</span>
-                        <p>${project.approach}</p>
-                    </article>
-                </div>
-                <ul class="flagship-points">
-                    ${project.highlights.slice(0, 3).map((item) => `<li>${item}</li>`).join("")}
-                </ul>
                 <div class="metric-chip-row">${renderMetricChips(project.impactMetrics, 3)}</div>
+                <dl class="flagship-detail-list">
+                    <div>
+                        <dt>핵심 문제</dt>
+                        <dd>${project.challenge}</dd>
+                    </div>
+                    <div>
+                        <dt>구현 방식</dt>
+                        <dd>${project.approach}</dd>
+                    </div>
+                </dl>
                 <button class="button button-primary button-inline" type="button" data-project-trigger="${project.slug}">
                     상세 구조 보기
                 </button>
@@ -119,19 +96,17 @@ function renderSecondaryFeatured(featuredProjects) {
     container.innerHTML = featuredProjects
         .slice(1)
         .map(
-            (project) => `
+            (project, index) => `
                 <article class="teaser-card surface-panel" data-reveal>
                     ${renderProjectShowcase(project, { variant: "teaser" })}
                     <div class="teaser-body">
+                        <p class="teaser-label">대표 사례 ${String(index + 2).padStart(2, "0")}</p>
                         <div>
                             <h3>${project.titleKo}</h3>
                             <p class="teaser-subtitle">${project.tagline}</p>
                         </div>
-                        <p class="teaser-summary">${project.highlights[0]}</p>
-                        <div class="teaser-proof">
-                            <span>대표 근거</span>
-                            <strong>${project.impactMetrics[0]}</strong>
-                        </div>
+                        <p class="teaser-summary">${project.challenge}</p>
+                        <p class="teaser-metric">${project.impactMetrics[0]}</p>
                         <button class="card-link" type="button" data-project-trigger="${project.slug}">
                             자세히 보기
                         </button>
@@ -153,48 +128,42 @@ function renderLibraryOverview(projects) {
     const markets = new Set(projects.map((project) => project.market)).size;
 
     container.innerHTML = `
-        <div class="library-overview-grid">
-            <article>
-                <strong>${projects.length}개</strong>
-                <span>전체 사례</span>
-            </article>
-            <article>
-                <strong>${koreanProjects}개</strong>
-                <span>한국 실무형 사례</span>
-            </article>
-            <article>
-                <strong>${globalProjects}개</strong>
-                <span>글로벌/해외 사례</span>
-            </article>
-            <article>
-                <strong>${markets}개</strong>
-                <span>시장 범위</span>
-            </article>
+        <div class="library-stat">
+            <strong>${projects.length}개</strong>
+            <span>전체 사례</span>
         </div>
-        <p class="library-overview-note">필터는 산업명이 아니라 구매자 관점의 문제 유형 기준으로 구성했습니다.</p>
+        <div class="library-stat">
+            <strong>${koreanProjects}개</strong>
+            <span>한국 실무형 사례</span>
+        </div>
+        <div class="library-stat">
+            <strong>${globalProjects}개</strong>
+            <span>글로벌·해외 사례</span>
+        </div>
+        <div class="library-stat">
+            <strong>${markets}개</strong>
+            <span>시장 범위</span>
+        </div>
+        <p class="library-note">필터는 산업명이 아니라 구매자 관점의 문제 유형 기준으로 구성했습니다.</p>
     `;
 }
 
 function buildLibraryCard(project) {
     return `
         <article class="library-card surface-panel" data-reveal>
-            ${renderProjectShowcase(project, { variant: "library" })}
-            <div class="library-card-body">
-                <div class="library-card-top">
+            <div class="library-card-top">
+                <div class="library-card-head">
+                    <span class="library-card-meta">${project.sector} · ${project.market}</span>
                     <div>
                         <h3>${project.titleKo}</h3>
                         <p class="library-card-tagline">${project.tagline}</p>
                     </div>
-                    <div class="pill-row">${createProjectPills(project, [project.period])}</div>
                 </div>
-                <p class="library-card-note">
-                    <strong>핵심 난이도</strong>
-                    <span>${project.highlights[0]}</span>
-                </p>
-                <div class="library-card-signal">
-                    <span>대표 근거</span>
-                    <strong>${project.impactMetrics[0]}</strong>
-                </div>
+                <span class="library-proof">${project.impactMetrics[0]}</span>
+            </div>
+            <p class="library-card-brief">${project.challenge}</p>
+            <div class="library-card-footer">
+                <span class="library-card-period">${project.period}</span>
                 <button class="card-link" type="button" data-project-trigger="${project.slug}">
                     상세 보기
                 </button>
@@ -225,7 +194,6 @@ function initProjectLibrary(projects) {
                         aria-pressed="${String(filter.key === activeFilter)}"
                     >
                         <span>${filter.label}</span>
-                        <small>${filter.description}</small>
                     </button>
                 `
             )
@@ -254,7 +222,7 @@ function initProjectLibrary(projects) {
 }
 
 export function renderPortfolioExperience({ projects, featuredProjects }) {
-    renderHeroProofCard(projects, featuredProjects);
+    renderHeroProofCard(projects);
     renderFlagshipCase(featuredProjects);
     renderSecondaryFeatured(featuredProjects);
     renderLibraryOverview(projects);

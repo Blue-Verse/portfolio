@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Verse Portfolio | 운영 복잡도를 푸는 구축 사례 라이브러리</title>
-    <meta name="description" content="Blue Verse가 다뤄 온 승인, 운영, 멀티플랫폼, AI 연동 프로젝트 12건을 신뢰 중심으로 정리한 구축 사례 라이브러리입니다.">
+    <title>Blue Verse Portfolio | 운영 구조 중심 구축 사례</title>
+    <meta name="description" content="Blue Verse가 다뤄 온 승인, 권한, 운영 구조 사례를 차분하게 정리한 구축 포트폴리오입니다.">
     <meta property="og:title" content="Blue Verse Portfolio">
-    <meta property="og:description" content="운영 복잡도를 푸는 구축 사례 12건을 정리한 Blue Verse 포트폴리오">
+    <meta property="og:description" content="승인, 권한, 운영 구조 사례를 중심으로 정리한 Blue Verse 포트폴리오">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/BLUEVERSE.png">
     <meta name="theme-color" content="#eef4fb">
@@ -26,22 +26,17 @@
 
     <header class="shell-header">
         <div class="container">
-            <div class="shell-bar surface-glass">
+            <div class="shell-bar">
                 <a class="brand" href="index.html" aria-label="Blue Verse Portfolio 홈">
-                    <img class="brand-symbol" src="assets/1Asset 3@3x.png" alt="Blue Verse 심볼">
-                    <div class="brand-copy">
-                        <strong>BLUEVERSE</strong>
-                        <span>Case Library</span>
-                    </div>
+                    <img class="brand-wordmark" src="assets/1Asset 3@3x.png" alt="Blue Verse" width="593" height="117">
                 </a>
                 <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
                     메뉴
                 </button>
                 <nav class="shell-nav" id="site-nav" aria-label="주요 탐색">
                     <a href="#featured-projects" data-nav-page="portfolio">대표 사례</a>
-                    <a href="#project-library">전체 프로젝트</a>
-                    <a href="#delivery-model">작업 방식</a>
-                    <a href="proposals.html" data-nav-page="proposals">제안서</a>
+                    <a href="#project-library">프로젝트</a>
+                    <a href="#trust-method">작업 방식</a>
                     <a href="about.html" data-nav-page="about">회사 소개</a>
                 </nav>
             </div>
@@ -52,23 +47,19 @@
         <section class="section hero hero-portfolio">
             <div class="container hero-portfolio-grid">
                 <div class="hero-copy" data-reveal>
-                    <p class="eyebrow">Blue Verse Case Library</p>
-                    <h1>복잡한 운영 요구를<br>제품 구조로 바꾼 사례만 모았습니다.</h1>
+                    <p class="eyebrow">Blue Verse Portfolio</p>
+                    <h1>복잡한 운영일수록<br>먼저 정리되어야 할 구조가 있습니다.</h1>
                     <p class="hero-lead">
-                        Blue Verse는 승인, 권한, 관리자 도구, 데이터 정합성, 멀티플랫폼 운영처럼
-                        제품을 무겁게 만드는 문제를 실제 구축 사례로 설명합니다.
+                        Blue Verse는 승인, 권한, 관리자 도구, 데이터 정합성처럼
+                        서비스의 신뢰를 좌우하는 구조를 먼저 설계하고 구현해 왔습니다.
+                        이 사이트는 그 경험을 사례 중심으로 차분히 정리한 포트폴리오입니다.
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#featured-projects">대표 사례 보기</a>
-                        <a class="button button-secondary" href="#project-library">전체 사례 탐색</a>
-                    </div>
-                    <div class="hero-problem-strip" aria-label="핵심 문제군">
-                        <span>승인·규제·정합성</span>
-                        <span>운영·현장·멀티액터</span>
-                        <span>AI·Web3·신규 구조</span>
+                        <a class="button button-primary" href="#featured-projects">대표 사례 살펴보기</a>
+                        <a class="button button-secondary" href="#project-library">전체 프로젝트 보기</a>
                     </div>
                 </div>
-                <aside class="hero-proof-card surface-glass" id="hero-proof-card" data-reveal aria-label="포트폴리오 핵심 증거"></aside>
+                <aside class="hero-proof-card surface-panel" id="hero-proof-card" data-reveal aria-label="포트폴리오 핵심 증거"></aside>
             </div>
         </section>
 
@@ -77,11 +68,11 @@
                 <div class="section-head split-intro" data-reveal>
                     <div>
                         <p class="eyebrow">대표 사례</p>
-                        <h2>먼저 봐야 할 대표 구축 사례 3건</h2>
+                        <h2>신뢰가 필요한 운영 구조부터 보실 수 있습니다</h2>
                     </div>
                     <p>
-                        규제와 승인, 현장 운영, 멀티액터 서비스처럼 신뢰 판단에 직접 연결되는 사례만 먼저 배치했습니다.
-                        첫 사례는 깊게 읽고, 나머지 둘은 짧게 비교할 수 있게 위계를 나눴습니다.
+                        실제 운영에서 중요도가 높았던 사례를 먼저 정리했습니다.
+                        첫 사례는 깊게 읽고, 나머지 둘은 짧게 비교할 수 있도록 위계를 나눴습니다.
                     </p>
                 </div>
                 <div class="flagship-case" id="flagship-case-body"></div>
@@ -94,57 +85,58 @@
                 <div class="section-head split-intro" data-reveal>
                     <div>
                         <p class="eyebrow">프로젝트 라이브러리</p>
-                        <h2>12개 사례를 문제 유형 기준으로 다시 비교할 수 있습니다</h2>
+                        <h2>프로젝트를 문제 유형 기준으로 비교할 수 있습니다</h2>
                     </div>
                     <p>
-                        산업 분류보다 어떤 복잡도를 풀었는지가 먼저 드러나도록 다시 묶었습니다.
-                        필터를 눌러 비슷한 문제군의 사례만 빠르게 좁혀볼 수 있습니다.
+                        산업 분류보다 어떤 운영 구조를 다뤘는지 먼저 보이도록 구성했습니다.
+                        필요한 경우 비슷한 문제군의 사례만 빠르게 좁혀볼 수 있습니다.
                     </p>
                 </div>
-                <div class="library-overview surface-panel" id="library-overview" data-reveal aria-label="프로젝트 범위 요약"></div>
+                <div class="library-overview" id="library-overview" data-reveal aria-label="프로젝트 범위 요약"></div>
                 <div class="filter-toolbar" id="project-filters" data-reveal aria-label="프로젝트 필터"></div>
                 <div class="project-library-grid" id="project-library-grid"></div>
             </div>
         </section>
 
-        <section class="section method-section" id="delivery-model">
+        <section class="section method-section" id="trust-method">
             <div class="container">
-                <div class="section-head compact" data-reveal>
-                    <p class="eyebrow">작업 방식</p>
-                    <h2>Blue Verse는 화면보다 구조를 먼저 정리합니다</h2>
-                    <p>작업 방식은 단순합니다. 먼저 운영 흐름을 고정하고, 구현 범위를 연결하고, 결과를 검증 가능한 증거로 남깁니다.</p>
-                </div>
-                <div class="method-grid">
-                    <article class="method-card surface-panel" data-reveal>
-                        <span class="method-index">01</span>
-                        <h3>구조화</h3>
-                        <p>승인 주체, 예외 처리, 관리자 동선, 외부 연동 지점을 먼저 고정합니다.</p>
-                    </article>
-                    <article class="method-card surface-panel" data-reveal>
-                        <span class="method-index">02</span>
-                        <h3>구현</h3>
-                        <p>사용자 화면, 백오피스, API, 배포를 따로 떼지 않고 하나의 서비스 경험으로 엮습니다.</p>
-                    </article>
-                    <article class="method-card surface-panel" data-reveal>
-                        <span class="method-index">03</span>
-                        <h3>검증</h3>
-                        <p>기간, 화면 수, API 규모, 플랫폼 수, PR 흔적처럼 설명 가능한 근거만 남깁니다.</p>
-                    </article>
+                <div class="method-strip surface-panel" data-reveal>
+                    <div class="method-strip-head">
+                        <p class="eyebrow">작업 방식</p>
+                        <h2>화면보다 먼저 운영 구조를 정리합니다</h2>
+                    </div>
+                    <div class="method-grid">
+                        <article class="method-card">
+                            <span class="method-index">01</span>
+                            <h3>구조화</h3>
+                            <p>승인 흐름, 권한 경계, 관리자 도구를 먼저 맞춥니다.</p>
+                        </article>
+                        <article class="method-card">
+                            <span class="method-index">02</span>
+                            <h3>구현</h3>
+                            <p>사용자 화면과 운영 도구를 하나의 제품 경험으로 연결합니다.</p>
+                        </article>
+                        <article class="method-card">
+                            <span class="method-index">03</span>
+                            <h3>검증</h3>
+                            <p>기간, 화면 수, API 규모처럼 설명 가능한 근거를 남깁니다.</p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section cta-section">
             <div class="container">
-                <div class="cta-panel surface-glass" data-reveal>
+                <div class="cta-panel surface-panel" data-reveal>
                     <div>
-                        <p class="eyebrow">다음 단계</p>
-                        <h2>우리와 비슷한 운영 문제를 준비 중이라면, 가까운 사례부터 확인해보세요.</h2>
-                        <p>대표 사례를 먼저 보고, 전체 라이브러리에서 비슷한 복잡도의 프로젝트를 이어서 비교할 수 있습니다.</p>
+                        <p class="eyebrow">더 살펴보기</p>
+                        <h2>비슷한 운영 구조를 검토 중이라면, 가까운 사례부터 보시면 됩니다.</h2>
+                        <p>대표 사례와 전체 프로젝트를 같은 기준으로 정리해 두었습니다.</p>
                     </div>
                     <div class="cta-actions">
-                        <a class="button button-primary" href="about.html">회사 소개 보기</a>
-                        <a class="button button-secondary" href="#project-library">전체 사례 보기</a>
+                        <a class="button button-primary" href="about.html">Blue Verse 소개</a>
+                        <a class="button button-secondary" href="#project-library">전체 사례 살펴보기</a>
                     </div>
                 </div>
             </div>
@@ -154,16 +146,12 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img class="footer-symbol" src="assets/1Asset 3@3x.png" alt="Blue Verse 심볼">
-                <div>
-                    <strong>BLUEVERSE</strong>
-                    <p>복잡한 운영을 제품 구조로 바꾸는 구축 파트너</p>
-                </div>
+                <img class="footer-wordmark" src="assets/1Asset 3@3x.png" alt="Blue Verse" width="593" height="117">
+                <p>복잡한 운영을 제품 구조로 정리하는 구축 파트너</p>
             </div>
             <div class="footer-links">
                 <a href="#featured-projects">대표 사례</a>
-                <a href="#project-library">전체 프로젝트</a>
-                <a href="proposals.html">제안서</a>
+                <a href="#project-library">전체 사례</a>
                 <a href="about.html">회사 소개</a>
             </div>
             <p class="footer-meta">Copyright <span data-current-year></span> Blue Verse</p>

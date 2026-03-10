@@ -1,6 +1,6 @@
 # BACKLOG_codex
 
-- 프로젝트별 외부 링크가 검증되면 case-study outbound CTA 추가
-- 현재 필터 UI를 sector / market / status 조합까지 확장
-- 프로젝트 상세 modal에 추가 evidence strip 도입
-- 영어 버전 페이지가 필요하면 별도 locale 구조 설계
+- 프로젝트 라이브러리 필터를 URL 상태와 연동
+- 프로젝트별 대표 스크린샷 커버리지 확대
+- About 페이지에 실제 협업 산출물 예시를 추가
+- 영어 버전 별도 분리 여부 검토

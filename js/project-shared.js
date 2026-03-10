@@ -30,7 +30,7 @@ const FILTERS = [
     },
     {
         key: "growth",
-        label: "사용자 성장·모바일",
+        label: "모바일·성장",
         description: "모바일 서비스와 사용자 리텐션",
         slugs: ["calendar-share", "daystarter", "casual-game"]
     },
@@ -110,7 +110,6 @@ export function renderProjectShowcase(project, options = {}) {
                         <strong>${project.titleKo}</strong>
                         <p>${project.titleEn}</p>
                     </div>
-                    <img class="showcase-symbol" src="assets/1Asset 3@3x.png" alt="">
                 </div>
                 <p class="showcase-tagline">${project.tagline}</p>
                 <div class="showcase-signal">

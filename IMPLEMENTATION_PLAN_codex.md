@@ -2,42 +2,40 @@
 
 ## 구현 구조
 
-- `index.html`: 리디자인된 포트폴리오 페이지
-- `about.html`: 리디자인된 팀 소개 페이지
-- `css/base.css`: 토큰, 리셋, 타이포, 공통 유틸리티
-- `css/shell.css`: 헤더, 푸터, 공통 패널, 버튼, 배경
-- `css/portfolio.css`: 메인 페이지 전용 섹션
-- `css/about.css`: About 페이지 전용 섹션
-- `js/projects-data.js`: 프로젝트 데이터 소스 유지
-- `js/site-shell.js`: 공통 내비게이션, reveal, year
-- `js/project-modal.js`: 모달 전용 로직 분리
-- `js/project-catalog.js`: 카드/필터/featured 렌더링 분리
-- `js/portfolio.js`: 페이지 조립만 담당
-- `js/about.js`: About 파생 데이터 렌더링
+- `index.html`: 더 단순해진 메인 구조와 새 카피 반영
+- `about.html`: 더 적은 섹션 수와 차분한 톤 반영
+- `css/base.css`: 배경, 타이포 스케일, 공통 간격 재조정
+- `css/shell.css`: 헤더 로고, 내비게이션, 푸터, 모달 공통 구조 재정리
+- `css/portfolio.css`: 홈 섹션 단순화, featured/library 카드 밀도 축소
+- `css/about.css`: About 섹션 수와 카드 밀도 축소
+- `js/project-library.js`: Hero/featured/library 렌더링 정보량 축소
+- `js/project-shared.js`: 카드/쇼케이스 공통 출력 단순화
+- `js/project-modal.js`: 모달은 유지하되 홈 카드에 숨긴 정보 중심으로 정리
 
-## 디자인 실행 원칙
+## 실행 원칙
 
-1. Hero는 한 문장, 한 행동, 한 증거군만 남긴다
-2. 첫 featured는 case-study panel로 크게 보여준다
-3. Secondary featured와 archive는 비교 가능한 카드로 압축한다
-4. About은 카드 반복이 아니라 band / matrix / timeline 조합으로 리듬을 만든다
-5. glass는 핵심 패널에만 쓰고 기본 패널은 종이 같은 밝은 면으로 정리한다
+1. 헤더는 큰 워드마크 + 적은 링크로 정리한다
+2. Hero는 한 문장, 한 설명, 한 행동 위주로 줄인다
+3. Featured는 첫 사례 1개를 깊게, 나머지 2개는 짧게 보여 준다
+4. Library는 overview 박스 수를 줄이고 카드 정보량을 압축한다
+5. About은 3열 반복보다 2열/1열 위주로 차분하게 재배치한다
+6. 카피는 `proposal-writer` 톤을 따라 차분하고 검증 가능한 어조로 다시 쓴다
 
 ## 구현 순서
 
-1. `_codex` 계획 문서 갱신
-2. CSS 구조 분리
-3. 공통 shell과 page layout 재구성
-4. 프로젝트 렌더링 로직을 featured / library / modal / filter 단위로 분리
-5. `index.html` 리디자인
-6. `about.html` 리디자인
-7. 반응형 정리
-8. 로컬 정적 검증
-9. handoff / changelog / 배포 판단
+1. `_codex` 문서 갱신
+2. 헤더 로고 및 공통 shell 구조 수정
+3. Home 정보구조 단순화
+4. About 정보구조 단순화
+5. 카드/필터/메타데이터 출력량 축소
+6. 카피 전면 재작성
+7. 반응형 검증
+8. handoff / changelog 갱신
 
 ## 검증 계획
 
-- `python -m http.server` 기준 응답 200 확인
+- `python -m http.server` 기준 정적 응답 200 확인
 - 데스크톱 1440px, 태블릿 1024px, 모바일 390px 뷰포트 확인
-- 첫 화면, featured, project library, about top 캡처
-- modal 동작과 필터 동작 확인
+- 헤더 로고 크기와 줄바꿈 검증
+- Home 첫 화면, featured, library, About 상단 캡처
+- 모달과 메뉴 동작 확인
