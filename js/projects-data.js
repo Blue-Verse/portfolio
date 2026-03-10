@@ -3,7 +3,7 @@ export const PROJECTS = [
         slug: "series-b",
         titleKo: "시리즈비",
         titleEn: "Series B",
-        tagline: "투자조합 관리와 규제 보고를 하나로 묶은 한국형 핀테크 플랫폼",
+        tagline: "투자조합 관리 · 업무 자동화 올인원 플랫폼",
         sector: "핀테크",
         market: "한국",
         period: "2023.11 - 2024.12",
@@ -21,7 +21,7 @@ export const PROJECTS = [
         slug: "ez-approve",
         titleKo: "이지어프루브",
         titleEn: "EZ-Approve",
-        tagline: "전자결재와 펀드 운영 실무를 압축 구현한 승인 플랫폼",
+        tagline: "전자결재 · 업무 관리 올인원 플랫폼",
         sector: "핀테크",
         market: "한국",
         period: "2026.01 - 2026.03",
@@ -33,7 +33,12 @@ export const PROJECTS = [
         impactMetrics: ["504건 9주간 총 PR", "50+ 프론트 페이지", "5종 VICS 양식"],
         stack: ["Next.js", "React", "NestJS", "MySQL", "Lexical", "Yjs"],
         highlights: ["실시간 협업 편집", "5계층 보안 구조", "펀드관리와 결재 엔진의 통합"],
-        evidenceNote: "지표는 catalog와 case-study 기준이며 공개 가능한 범위만 사용했습니다."
+        evidenceNote: "지표는 catalog와 case-study 기준이며 공개 가능한 범위만 사용했습니다.",
+        showcaseImage: {
+            src: "assets/showcase-screens/ez-approve.png",
+            alt: "EZ-Approve 로그인 화면",
+            label: "실제 로컬 렌더 캡처"
+        }
     },
     {
         slug: "harmony-link",
@@ -60,7 +65,7 @@ export const PROJECTS = [
         tagline: "대출, 투자, 심사를 한 서비스 안에서 처리하는 금융 플랫폼",
         sector: "핀테크",
         market: "한국",
-        period: "2017 - 2020.01",
+        period: "2017 - 2018 · 2019.12 - 2020.01",
         status: "아카이브",
         featured: false,
         summary: "대출자와 투자자, 운영팀이 동시에 사용하는 P2P 금융 서비스를 고객 포털과 관리자 시스템으로 나눠 구축한 프로젝트입니다.",
@@ -93,7 +98,7 @@ export const PROJECTS = [
         slug: "calendar-share",
         titleKo: "캘린더 쉐어",
         titleEn: "Calendar Share",
-        tagline: "소셜 피드와 일정을 결합한 글로벌 캘린더 공유 앱",
+        tagline: "소셜 캘린더 공유 플랫폼",
         sector: "소셜 플랫폼",
         market: "글로벌",
         period: "2025.01",
@@ -105,7 +110,12 @@ export const PROJECTS = [
         impactMetrics: ["17,628 LOC", "45+ 화면", "8개 Firebase 서비스"],
         stack: ["Flutter", "Firebase", "Supabase", "Provider", "QR", "Push"],
         highlights: ["좋아요=캘린더 추가 메커니즘", "QR 오프라인 디스커버리", "서버리스 기반 저비용 구조"],
-        evidenceNote: "공개 저장소와 market-intel case-study 기준으로 정리했습니다."
+        evidenceNote: "공개 저장소와 market-intel case-study 기준으로 정리했습니다.",
+        showcaseImage: {
+            src: "assets/showcase-screens/calendar-share.jpg",
+            alt: "Calendar Share 메인 피드 화면",
+            label: "저장소 포함 실기기 캡처"
+        }
     },
     {
         slug: "connectin",
@@ -123,7 +133,12 @@ export const PROJECTS = [
         impactMetrics: ["12개 마이크로서비스", "41개 모바일 모듈", "~63개 REST API"],
         stack: ["Flutter", "Next.js", "Express", "PostgreSQL", "Firestore", "Signal Protocol"],
         highlights: ["E2E 암호화 메시징", "BLE + GPS 근거리 탐색", "OCR 명함 스캔과 Zalo 연동"],
-        evidenceNote: "베트남 시장 프로젝트로, catalog 기준의 구조와 규모 지표만 노출했습니다."
+        evidenceNote: "베트남 시장 프로젝트로, catalog 기준의 구조와 규모 지표만 노출했습니다.",
+        showcaseImage: {
+            src: "assets/showcase-screens/connectin.png",
+            alt: "Connectin 랜딩 페이지 히어로 섹션",
+            label: "실제 웹 렌더 캡처"
+        }
     },
     {
         slug: "ai-agent",
@@ -141,7 +156,12 @@ export const PROJECTS = [
         impactMetrics: ["839개 문서 자산", "134+ 재사용 스킬", "12개 자동 품질 게이트"],
         stack: ["TypeScript", "React", "Hono", "Playwright", "PostgreSQL", "Python"],
         highlights: ["멀티 에이전트 통합 운영", "Tamper detection 기반 품질 게이트", "지식 자산 중심 SDLC 구조"],
-        evidenceNote: "내부 프레임워크 사례이며, market-intel의 정량 지표만 외부용으로 정리했습니다."
+        evidenceNote: "내부 프레임워크 사례이며, market-intel의 정량 지표만 외부용으로 정리했습니다.",
+        showcaseImage: {
+            src: "assets/showcase-screens/ai-agent.png",
+            alt: "AI Agent Control Dashboard 개요 화면",
+            label: "실제 대시보드 렌더 캡처"
+        }
     },
     {
         slug: "casual-game",

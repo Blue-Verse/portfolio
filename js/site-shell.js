@@ -1,4 +1,5 @@
 export function initSiteShell() {
+    document.documentElement.classList.add("js-ready");
     const currentPage = document.body.dataset.page;
 
     document.querySelectorAll("[data-nav-page]").forEach((link) => {

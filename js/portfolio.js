@@ -1,6 +1,51 @@
 import { FEATURED_PROJECTS, PROJECTS } from "./projects-data.js";
 import { initSiteShell } from "./site-shell.js";
 
+const ARCHIVE_PROJECTS = PROJECTS.filter((project) => !project.featured);
+
+const TONE_BY_SECTOR = {
+    "핀테크": "tone-trust",
+    "헬스케어": "tone-care",
+    "피트니스": "tone-energy",
+    "소셜 플랫폼": "tone-network",
+    "B2B 네트워킹": "tone-network",
+    "AI 툴링": "tone-ink",
+    "게임": "tone-energy",
+    "라이프스타일": "tone-energy",
+    "Web3": "tone-depth"
+};
+
+function getProjectTone(project) {
+    return TONE_BY_SECTOR[project.sector] ?? "tone-trust";
+}
+
+function renderHeroRoster() {
+    const container = document.querySelector("#hero-roster");
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+        <section class="hero-roster-panel glass-panel">
+            <div class="hero-roster-head">
+                <div>
+                    <p class="hero-roster-label">Portfolio Coverage</p>
+                    <strong>검토 완료 프로젝트 ${PROJECTS.length}개</strong>
+                </div>
+                <span>카드를 누르면 상세 구조를 바로 볼 수 있습니다.</span>
+            </div>
+            <div class="hero-roster-grid">
+                ${PROJECTS.map((project) => `
+                    <button class="hero-roster-chip" type="button" data-project-trigger="${project.slug}">
+                        <span>${project.titleKo}</span>
+                        <small>${project.sector} · ${project.market}</small>
+                    </button>
+                `).join("")}
+            </div>
+        </section>
+    `;
+}
+
 function renderSignals() {
     const container = document.querySelector("#trust-signals");
     if (!container) {
@@ -12,28 +57,82 @@ function renderSignals() {
     const sectors = new Set(PROJECTS.map((project) => project.sector)).size;
 
     const signals = [
-        { value: `${PROJECTS.length}개`, label: "분석된 전체 프로젝트" },
-        { value: `${koreanProjects}개`, label: "한국 시장 중심 사례" },
-        { value: `${markets}개`, label: "실제 대응 시장 범위" },
-        { value: `${sectors}개`, label: "커버 산업 카테고리" }
+        { value: `${PROJECTS.length}개`, label: "전체 구축 사례", description: "templates 제외 기준 전량 반영" },
+        { value: `${koreanProjects}개`, label: "한국 시장 사례", description: "실무형 신뢰 영역 우선 공개" },
+        { value: `${markets}개`, label: "시장 범위", description: "한국 · 글로벌 · 베트남" },
+        { value: `${sectors}개`, label: "산업 카테고리", description: "핀테크, 헬스케어, AI, Web3 등" }
     ];
 
-    container.innerHTML = signals
-        .map(
-            (signal) => `
-                <article class="signal-card">
-                    <strong>${signal.value}</strong>
-                    <span>${signal.label}</span>
-                </article>
-            `
-        )
+    container.innerHTML = signals.map((signal) => `
+        <article class="signal-card" data-reveal>
+            <strong>${signal.value}</strong>
+            <span>${signal.label}</span>
+            <p>${signal.description}</p>
+        </article>
+    `).join("");
+}
+
+function createPills(project, extras = []) {
+    return [project.sector, project.market, project.status, ...extras]
+        .filter(Boolean)
+        .map((value) => `<span class="pill">${value}</span>`)
         .join("");
 }
 
-function createPills(project) {
-    return [project.sector, project.market, project.status]
-        .map((value) => `<span class="pill">${value}</span>`)
-        .join("");
+function renderMetricList(metrics, limit = metrics.length) {
+    return metrics.slice(0, limit).map((metric) => `<span>${metric}</span>`).join("");
+}
+
+function renderStackLine(stack, limit) {
+    return stack.slice(0, limit).map((item) => `<span>${item}</span>`).join("");
+}
+
+function renderShowcase(project, variant = "archive") {
+    const toneClass = getProjectTone(project);
+    const head = `
+        <div class="project-showcase-head">
+            <span class="project-showcase-badge">${project.market}</span>
+            <span class="project-showcase-badge muted">${project.period}</span>
+        </div>
+    `;
+
+    if (project.showcaseImage) {
+        const noteMarkup = project.showcaseImage.label
+            ? `<figcaption class="project-showcase-note">${project.showcaseImage.label}</figcaption>`
+            : "";
+
+        return `
+            <figure class="project-showcase image ${variant} ${toneClass}">
+                ${head}
+                <img src="${project.showcaseImage.src}" alt="${project.showcaseImage.alt}" loading="lazy">
+                ${noteMarkup}
+            </figure>
+        `;
+    }
+
+    return `
+        <figure class="project-showcase fallback ${variant} ${toneClass}">
+            <div class="project-fallback-top">
+                ${head}
+                <div class="project-fallback-mark">
+                    <span class="project-fallback-kicker">${project.sector}</span>
+                    <img class="project-fallback-symbol" src="assets/1Asset 3@3x.png" alt="">
+                </div>
+                <div>
+                    <strong>${project.titleKo}</strong>
+                    <p>${project.titleEn}</p>
+                </div>
+            </div>
+            <p class="project-fallback-copy">${project.tagline}</p>
+            <div class="project-fallback-stat">
+                <span>Key Signal</span>
+                <strong>${project.impactMetrics[0]}</strong>
+            </div>
+            <div class="project-fallback-stack">
+                ${renderStackLine(project.stack, 2)}
+            </div>
+        </figure>
+    `;
 }
 
 function renderFeatured() {
@@ -42,11 +141,10 @@ function renderFeatured() {
         return;
     }
 
-    container.innerHTML = FEATURED_PROJECTS.map((project, index) => {
-        const layoutClass = index === 0 ? "featured-primary" : "featured-secondary";
-
-        return `
-            <article class="project-card featured ${layoutClass}" data-reveal>
+    container.innerHTML = FEATURED_PROJECTS.map((project, index) => `
+        <article class="project-card featured ${index === 0 ? "featured-primary" : "featured-secondary"}" data-reveal>
+            ${renderShowcase(project, "featured")}
+            <div class="project-card-body">
                 <div class="project-card-header">
                     <div>
                         <h3>${project.titleKo}</h3>
@@ -54,17 +152,19 @@ function renderFeatured() {
                     </div>
                     <div class="meta-block">${createPills(project)}</div>
                 </div>
-                <p class="project-summary">${project.tagline}</p>
-                <p class="project-summary">${project.summary}</p>
-                <div class="metric-row">
-                    ${project.impactMetrics.map((metric) => `<span>${metric}</span>`).join("")}
+                <p class="project-summary lead">${project.summary}</p>
+                <ul class="project-keypoints">
+                    ${project.highlights.slice(0, 3).map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+                <div class="metric-row featured-metrics">
+                    ${renderMetricList(project.impactMetrics, 3)}
                 </div>
                 <button class="card-action" type="button" data-project-trigger="${project.slug}">
-                    상세 보기
+                    구조와 결과 보기
                 </button>
-            </article>
-        `;
-    }).join("");
+            </div>
+        </article>
+    `).join("");
 }
 
 function renderArchive() {
@@ -73,9 +173,10 @@ function renderArchive() {
         return;
     }
 
-    container.innerHTML = PROJECTS.map((project) => `
+    container.innerHTML = ARCHIVE_PROJECTS.map((project) => `
         <article class="project-card archive" data-reveal>
-            <div>
+            ${renderShowcase(project, "archive")}
+            <div class="project-card-body">
                 <div class="project-card-header">
                     <div>
                         <h3>${project.titleKo}</h3>
@@ -87,17 +188,20 @@ function renderArchive() {
                     <span>${project.market}</span>
                     <span>${project.period}</span>
                 </div>
+                <p class="project-summary">${project.tagline}</p>
+                <ul class="project-keypoints compact">
+                    ${project.highlights.slice(0, 2).map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+                <div class="metric-row compact">
+                    ${renderMetricList(project.impactMetrics, 2)}
+                </div>
+                <div class="stack-line">
+                    ${renderStackLine(project.stack, 4)}
+                </div>
+                <button class="card-action" type="button" data-project-trigger="${project.slug}">
+                    상세 보기
+                </button>
             </div>
-            <p class="project-summary">${project.tagline}</p>
-            <div class="metric-row">
-                ${project.impactMetrics.map((metric) => `<span>${metric}</span>`).join("")}
-            </div>
-            <div class="stack-line">
-                ${project.stack.slice(0, 4).map((item) => `<span>${item}</span>`).join("")}
-            </div>
-            <button class="card-action" type="button" data-project-trigger="${project.slug}">
-                사례 열기
-            </button>
         </article>
     `).join("");
 }
@@ -105,13 +209,14 @@ function renderArchive() {
 function buildModalMarkup(project) {
     return `
         <header class="modal-header">
-            <div class="meta-block">${createPills(project)}<span class="pill">${project.period}</span></div>
+            <div class="meta-block">${createPills(project, [project.period])}</div>
             <div>
                 <h2 id="modal-title">${project.titleKo}</h2>
                 <p>${project.titleEn}</p>
             </div>
             <p>${project.tagline}</p>
         </header>
+        ${renderShowcase(project, "modal")}
         <section class="modal-summary">
             <strong>프로젝트 요약</strong>
             <p>${project.summary}</p>
@@ -159,10 +264,9 @@ function initModal() {
     const modal = document.querySelector("#project-modal");
     const modalContent = document.querySelector("#modal-content");
     const closeButtons = document.querySelectorAll("[data-close-modal]");
-    const triggerButtons = document.querySelectorAll("[data-project-trigger]");
     const dialog = modal?.querySelector(".modal-card");
 
-    if (!modal || !modalContent || !dialog || !triggerButtons.length) {
+    if (!modal || !modalContent || !dialog) {
         return;
     }
 
@@ -194,7 +298,7 @@ function initModal() {
             return;
         }
 
-        lastTrigger = trigger;
+        lastTrigger = trigger ?? null;
         modalContent.innerHTML = buildModalMarkup(project);
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -202,8 +306,14 @@ function initModal() {
         dialog.focus();
     }
 
-    triggerButtons.forEach((button) => {
-        button.addEventListener("click", () => openModal(button.dataset.projectTrigger, button));
+    document.addEventListener("click", (event) => {
+        const trigger = event.target instanceof Element ? event.target.closest("[data-project-trigger]") : null;
+        if (!trigger) {
+            return;
+        }
+
+        event.preventDefault();
+        openModal(trigger.dataset.projectTrigger, trigger);
     });
 
     closeButtons.forEach((button) => {
@@ -223,6 +333,7 @@ function initModal() {
     }
 }
 
+renderHeroRoster();
 renderSignals();
 renderFeatured();
 renderArchive();
