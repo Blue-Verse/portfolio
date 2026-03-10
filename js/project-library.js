@@ -27,7 +27,7 @@ function renderHeroProofCard(projects) {
 
     container.innerHTML = `
         <p class="eyebrow">핵심 범위</p>
-        <h2>12개 사례를 운영 구조 기준으로 다시 정리했습니다.</h2>
+        <h2>${projects.length}개 사례를 운영 구조 기준으로 다시 정리했습니다.</h2>
         <p>대표 사례는 신뢰 판단에 바로 연결되는 프로젝트를 앞에 두고, 나머지 사례는 같은 기준으로 비교할 수 있게 구성했습니다.</p>
         <div class="hero-proof-metrics">
             <article class="hero-proof-metric">

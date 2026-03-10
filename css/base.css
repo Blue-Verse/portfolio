@@ -15,11 +15,11 @@
     --shadow-lg: 0 26px 72px rgba(20, 43, 82, 0.1);
     --shadow-md: 0 14px 36px rgba(28, 48, 86, 0.08);
     --shadow-sm: 0 8px 20px rgba(26, 46, 82, 0.05);
-    --radius-2xl: 34px;
-    --radius-xl: 28px;
-    --radius-lg: 22px;
-    --radius-md: 16px;
-    --radius-sm: 12px;
+    --radius-2xl: 20px;
+    --radius-xl: 16px;
+    --radius-lg: 12px;
+    --radius-md: 10px;
+    --radius-sm: 8px;
     --container: min(1200px, calc(100% - 64px));
 }
 
@@ -148,7 +148,7 @@ section[id] {
 }
 
 .section {
-    padding: 84px 0;
+    padding: 68px 0;
 }
 
 .compact {
@@ -166,8 +166,8 @@ section[id] {
 
 .section-head {
     display: grid;
-    gap: 10px;
-    margin-bottom: 24px;
+    gap: 8px;
+    margin-bottom: 18px;
 }
 
 .section-head h2 {
@@ -192,7 +192,7 @@ section[id] {
 .metric-chip-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
 .project-pill,
@@ -259,7 +259,7 @@ section[id] {
     }
 
     .section {
-        padding: 68px 0;
+        padding: 60px 0;
     }
 }
 
@@ -269,7 +269,7 @@ section[id] {
     }
 
     .section {
-        padding: 58px 0;
+        padding: 48px 0;
     }
 
     .section-head h2 {

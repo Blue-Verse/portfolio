@@ -1,11 +1,11 @@
 .about-hero {
-    padding-top: 28px;
+    padding-top: 20px;
 }
 
 .about-hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-    gap: 40px;
+    gap: 26px;
     align-items: center;
 }
 
@@ -26,8 +26,8 @@
 
 .team-glance {
     display: grid;
-    gap: 18px;
-    padding: 26px;
+    gap: 14px;
+    padding: 18px;
     border-radius: var(--radius-2xl);
 }
 
@@ -59,13 +59,13 @@
 .about-hero-metrics-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    gap: 8px;
 }
 
 .about-hero-metric,
 .coverage-stat {
-    padding: 16px 18px;
-    border-radius: 18px;
+    padding: 12px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--line);
     background: rgba(246, 249, 253, 0.96);
 }
@@ -85,14 +85,14 @@
 }
 
 .positioning-section {
-    padding-top: 48px;
+    padding-top: 32px;
 }
 
 .positioning-band {
     display: grid;
     grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
-    gap: 32px;
-    padding: 30px 32px;
+    gap: 20px;
+    padding: 20px 22px;
     border-radius: var(--radius-2xl);
 }
 
@@ -112,14 +112,14 @@
 .capability-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 18px;
+    gap: 12px;
+    margin-top: 12px;
 }
 
 .capability-card,
 .timeline-step,
 .coverage-note {
-    padding: 24px;
+    padding: 16px;
     border-radius: var(--radius-xl);
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
 }
@@ -148,22 +148,22 @@
 .timeline-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 12px;
 }
 
 .timeline-step {
     display: grid;
     grid-template-columns: 48px minmax(0, 1fr);
-    gap: 16px;
+    gap: 12px;
 }
 
 .timeline-step span:first-child {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     background: rgba(19, 87, 199, 0.08);
     color: var(--accent-deep);
     font-weight: 800;
@@ -183,13 +183,13 @@
 .coverage-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, 0.84fr);
-    gap: 16px;
+    gap: 12px;
 }
 
 .coverage-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 12px;
 }
 
 .coverage-stat p {
@@ -231,7 +231,7 @@
     .timeline-step,
     .coverage-note,
     .coverage-stat {
-        padding: 20px;
+        padding: 14px;
     }
 
     .timeline-step {

@@ -1,27 +1,26 @@
 # TASK_BREAKDOWN_codex
 
-## 1. 구조 재정리
+## 1. 데이터 범위 점검
 
-- 현재 과밀한 섹션과 패널 구조를 줄인다
-- Home / About의 최종 섹션 수를 확정한다
-- 헤더 워드마크 중심 구조를 정한다
+- `market-intel` 디렉터리 수를 다시 확인한다
+- `projects-data.js`와 13개 프로젝트 매칭을 검증한다
+- 숫자 카피가 현재 데이터셋과 맞는지 확인한다
 
-## 2. 콘텐츠 재작성
+## 2. 시각 밀도 보정
 
-- Home hero 카피 재작성
-- 섹션 제목과 보조 문장 재작성
-- About hero / positioning / CTA 카피 재작성
-- 카드에서 보여 줄 문장 톤을 차분하게 조정
+- header 로고 크기를 1/3 수준으로 축소한다
+- 전역 radius와 section spacing을 더 타이트하게 맞춘다
+- featured / teaser / library 카드 패딩과 열 구성을 재정리한다
 
-## 3. 프런트엔드 구현
+## 3. 콘텐츠 보정
 
-- 헤더와 푸터 로고 구조 수정
-- shell / portfolio / about CSS 재조정
-- library / featured 렌더링 정보량 축소
-- 모바일 메뉴와 모바일 간격 재점검
+- Hero proof와 overview 카피의 숫자를 13개 기준으로 고친다
+- 필요한 경우 카드 요약 문장을 다시 줄인다
+- About 페이지의 spacing도 같은 톤으로 맞춘다
 
 ## 4. 검증
 
 - 정적 응답 확인
 - 뷰포트 캡처 확인
 - 메뉴 / 모달 / 필터 동작 확인
+- 배포 후 GitHub Pages 응답 확인

@@ -200,6 +200,24 @@ export const PROJECTS = [
         evidenceNote: "Daystarter는 별도 marketing-assets catalog와 one-pager를 기준으로 정리했습니다."
     },
     {
+        slug: "fortune-app",
+        titleKo: "운세 앱",
+        titleEn: "Fortune App",
+        tagline: "사주 분석과 리워드 구조를 결합한 모바일 앱",
+        sector: "엔터테인먼트",
+        market: "한국",
+        period: "2024.07 - 2024.09",
+        status: "운영 반영",
+        featured: false,
+        summary: "사주 분석, 행운의 번호, 궁합, 포인트 리워드를 하나의 모바일 경험으로 묶은 소비자 앱입니다.",
+        challenge: "한국 전통 사주 체계를 현대적 앱 경험으로 옮기면서도 iOS와 Android를 짧은 일정 안에 동시에 출시해야 했습니다.",
+        approach: "Flutter 단일 코드베이스와 Clean Architecture, Firebase 기반 운영 도구, 자체 광고 SDK를 조합해 3개월 안에 출시 가능한 구조로 압축했습니다.",
+        impactMetrics: ["3개월 내 iOS·Android 동시 출시", "305개 Dart 파일 · 약 16,355 LOC", "17개 Use Case 기반 구조"],
+        stack: ["Flutter", "Dart", "Firebase", "Node.js", "BLoC", "Retrofit"],
+        highlights: ["사주 기반 맞춤형 분석", "자체 광고 SDK 개발", "한국어·영어 다국어 지원"],
+        evidenceNote: "fortune-app market-intel catalog와 케이스 스터디 기준으로 공개 가능한 범위만 정리했습니다."
+    },
+    {
         slug: "life3",
         titleKo: "라이프3",
         titleEn: "Life3",

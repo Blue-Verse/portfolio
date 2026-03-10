@@ -7,6 +7,7 @@ const TONE_BY_SECTOR = {
     "AI 툴링": "tone-ink",
     "게임": "tone-energy",
     "라이프스타일": "tone-energy",
+    "엔터테인먼트": "tone-energy",
     "Web3": "tone-depth"
 };
 
@@ -14,7 +15,7 @@ const FILTERS = [
     {
         key: "all",
         label: "전체",
-        description: "12개 전체 사례"
+        description: "13개 전체 사례"
     },
     {
         key: "regulated",
@@ -32,7 +33,7 @@ const FILTERS = [
         key: "growth",
         label: "모바일·성장",
         description: "모바일 서비스와 사용자 리텐션",
-        slugs: ["calendar-share", "daystarter", "casual-game"]
+        slugs: ["calendar-share", "daystarter", "casual-game", "fortune-app"]
     },
     {
         key: "frontier",
@@ -85,17 +86,32 @@ export function renderMetricChips(metrics, limit = metrics.length) {
 export function renderProjectShowcase(project, options = {}) {
     const variant = options.variant ?? "library";
     const toneClass = getToneClass(project);
+    const showMetaHead = variant !== "teaser";
 
     if (project.showcaseImage) {
-        const noteMarkup = project.showcaseImage.label
+        const noteMarkup = showMetaHead && project.showcaseImage.label
             ? `<figcaption class="showcase-note">${project.showcaseImage.label}</figcaption>`
             : "";
 
         return `
             <figure class="showcase ${variant} ${toneClass}">
-                ${renderShowcaseHead(project)}
+                ${showMetaHead ? renderShowcaseHead(project) : ""}
                 <img class="showcase-image" src="${project.showcaseImage.src}" alt="${project.showcaseImage.alt}" loading="lazy">
                 ${noteMarkup}
+            </figure>
+        `;
+    }
+
+    if (variant === "teaser") {
+        return `
+            <figure class="showcase ${variant} ${toneClass}">
+                <div class="showcase-compact">
+                    <span class="showcase-sector">${project.sector}</span>
+                    <div class="showcase-compact-body">
+                        <span>대표 근거</span>
+                        <strong>${project.impactMetrics[0]}</strong>
+                    </div>
+                </div>
             </figure>
         `;
     }

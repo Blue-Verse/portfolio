@@ -2,16 +2,16 @@
 
 ## 현재 세션 범위
 
-- 사용자 요청: 헤더 로고를 더 크게 만들고, 전체 사이트의 복잡함을 낮추며, 카피도 다시 쓴다.
-- 이번 패스는 기존 리디자인 위에 또 덧붙이는 방식이 아니라, "큰 워드마크가 중심이 되는 차분한 구조"로 다시 정리하는 작업이다.
+- 사용자 요청: 카드 레이아웃을 고치고, 카드 라운드/패딩/간격을 더 줄이고, 헤더 로고를 기존 대비 1/3 수준으로 줄이며, `market-intel` 기준 13개 프로젝트를 모두 반영한다.
+- 이번 패스는 전면 재설계가 아니라 declutter 버전 위에 적용하는 compact refinement 작업이다.
 
 ## 이번 세션 설계 결정
 
-1. 헤더는 `assets/1Asset 3@3x.png` 워드마크 PNG 중심으로 바꾼다
-2. Home은 `Hero -> Featured -> Library -> Compact Method -> CTA`로 축소한다
-3. About은 `Hero -> Positioning -> Process -> Coverage -> CTA`로 축소한다
-4. 카드 안의 박스를 줄이고, 상세 정보는 모달로 보낸다
-5. 카피는 더 조용하고 더 신뢰형 어조로 다시 쓴다
+1. 헤더 워드마크는 유지하되 시각 비중을 더 줄인다
+2. 공통 radius와 spacing을 한 단계 더 줄여 카드 비율을 맞춘다
+3. Featured와 Library는 카드 폭과 내부 구조를 다시 맞춰 "작은데 어수선한 카드" 인상을 제거한다
+4. Hero proof와 overview 숫자는 13개 프로젝트 기준으로 맞춘다
+5. `market-intel` 13개 프로젝트는 모두 유지한다
 
 ## 자산 메모
 
@@ -20,46 +20,34 @@
 
 ## 아직 남은 일
 
-- 없음. 이번 패스의 로컬 리디자인 구현과 검증까지 완료했다.
+- 배포 후 라이브 응답 재확인
 
 ## 이번 세션 구현 결과
 
-1. 헤더를 작은 심볼+텍스트 조합에서 실제 워드마크 PNG 중심 구조로 교체했다
-2. 워드마크 이미지에 실제 자산 치수 `593x117`을 HTML 속성으로 반영했다
-3. Home hero의 proof preview, problem strip, 과도한 box nesting을 제거했다
-4. Featured는 flagship 1건 + teaser 2건으로 더 단순한 위계로 재구성했다
-5. Project library는 overview box와 이미지 중심 카드를 줄이고, 텍스트 중심 비교 카드로 압축했다
-6. Home의 작업 방식은 별도 무거운 섹션이 아니라 compact strip으로 축소했다
-7. About은 `Hero -> Positioning -> Process -> Coverage -> CTA` 흐름으로 다시 정리했다
-8. 전체 페이지 카피를 더 차분하고 신뢰형 톤으로 재작성했다
-9. 프로젝트 tagline과 모달 라벨도 같은 톤으로 조정했다
+1. 헤더 워드마크를 원본 PNG 593px 기준 1/3 크기인 `198px`로 유지해 상단 비중을 낮췄다
+2. 전역 radius를 `20 / 16 / 12 / 10 / 8` 체계로 낮추고 공통 section padding도 더 타이트하게 조정했다
+3. Hero proof 카드 카피를 `${projects.length}` 기반 렌더로 바꿔 13개 프로젝트 기준과 맞췄다
+4. Featured flagship 카드의 media/body 비율, gap, padding을 다시 맞춰 대표 사례 카드가 덜 퍼져 보이게 조정했다
+5. Secondary featured 카드는 세로형 카드로 재구성하고, 스크린샷이 없는 카드에는 `sector + 대표 근거`만 남긴 간결한 cover를 적용했다
+6. Project library는 3열에서 2열 위계로 되돌리고, 카드 본문을 3줄 clamp로 제한해 footer 높이 흔들림을 줄였다
+7. `core/docs/market-intel`와 `js/projects-data.js`를 대조해 `templates` 제외 13개 프로젝트가 모두 반영되어 있음을 확인했다
 
 ## 검증 메모
 
 1. 정적 응답 200 확인
    - `http://127.0.0.1:4180/index.html`
    - `http://127.0.0.1:4180/about.html`
+   - `http://127.0.0.1:4180/css/styles.css`
+   - `http://127.0.0.1:4180/js/portfolio.js`
 2. Edge headless `--dump-dom` 기준 확인
-   - `brand-wordmark`
-   - `flagship-label`
-   - `library-card-meta`
-   - `method-strip`
-   - `coverage-note`
-3. 모바일 진단 HTML 기준
-   - `innerWidth: 390`
-   - `docScrollWidth: 375`
-   - 메뉴 버튼 `display: flex`
-   - 수평 오버플로 해소 확인
-4. 최신 캡처
-   - `C:\Users\horim\AppData\Local\Temp\portfolio-declutter-pass\index-top-final.png`
-   - `C:\Users\horim\AppData\Local\Temp\portfolio-declutter-pass\about-top-final.png`
-   - `C:\Users\horim\AppData\Local\Temp\portfolio-declutter-pass\index-mobile-final.png`
+   - Hero proof에 `13개 사례를 운영 구조 기준으로 다시 정리했습니다.` 포함
+   - `library-card` 13개 렌더 확인
+   - `teaser-card` 2개 렌더 확인
+3. 최신 캡처
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-tighten-pass\index-top-after-3.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-tighten-pass\index-mobile-after-2.png`
+   - `C:\Users\horim\AppData\Local\Temp\portfolio-tighten-pass\about-top-after.png`
 
 ## 배포 메모
 
-- 원격 반영은 fresh clone 경로 `C:\Users\horim\AppData\Local\Temp\blue-verse-portfolio-deploy-codex-20260311-0305`에서 완료
-- 배포 대상 저장소는 `https://github.com/Blue-Verse/portfolio`
-- 원격 커밋: `f5b8530` - `feat: declutter portfolio layout and copy`
-- 라이브 검증:
-  1. `https://blue-verse.github.io/portfolio/?v=20260311-0308` 기준 `복잡한 운영일수록`, `brand-wordmark`, `프로젝트를 문제 유형 기준으로 비교할 수 있습니다`, `Blue Verse 소개` 확인
-  2. `https://blue-verse.github.io/portfolio/about.html?v=20260311-0308` 기준 `운영 구조를 먼저 설계하는 팀입니다`, `복잡한 서비스일수록 구조가 먼저 정리되어야 합니다`, `사례 보기` 확인
+- fresh clone 경로로 배포 후 채운다.

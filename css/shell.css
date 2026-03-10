@@ -25,7 +25,7 @@
     position: sticky;
     top: 0;
     z-index: 30;
-    padding: 18px 0 0;
+    padding: 14px 0 0;
     background: linear-gradient(180deg, rgba(252, 253, 255, 0.92) 0%, rgba(252, 253, 255, 0.78) 68%, rgba(252, 253, 255, 0) 100%);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -36,9 +36,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
-    min-height: 96px;
-    padding: 0 0 18px;
+    gap: 24px;
+    min-height: 72px;
+    padding: 0 0 14px;
     border-bottom: 1px solid rgba(58, 86, 130, 0.12);
 }
 
@@ -54,9 +54,9 @@
 }
 
 .brand-wordmark {
-    width: min(593px, 100%);
+    width: min(198px, 100%);
     height: auto;
-    max-width: 593px;
+    max-width: 198px;
 }
 
 .menu-toggle {
@@ -73,7 +73,7 @@
 .shell-nav {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     margin-left: auto;
 }
 
@@ -164,7 +164,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 28px;
-    padding: 34px 36px;
+    padding: 28px 30px;
     border-radius: var(--radius-2xl);
 }
 
@@ -350,9 +350,9 @@
 
 @media (max-width: 860px) {
     .shell-bar {
-        min-height: 76px;
-        gap: 14px;
-        padding-bottom: 14px;
+        min-height: 64px;
+        gap: 12px;
+        padding-bottom: 12px;
     }
 
     .menu-toggle {
@@ -395,7 +395,7 @@
     }
 
     .brand-wordmark {
-        width: min(260px, calc(100vw - 150px));
+        width: min(170px, calc(100vw - 156px));
     }
 
     .brand {
@@ -409,12 +409,12 @@
 
 @media (max-width: 560px) {
     .shell-header {
-        padding-top: 12px;
+        padding-top: 10px;
     }
 
     .shell-bar {
-        min-height: 68px;
-        padding-bottom: 12px;
+        min-height: 58px;
+        padding-bottom: 10px;
     }
 
     .button {
@@ -431,7 +431,7 @@
     }
 
     .brand-wordmark {
-        width: min(145px, calc(100vw - 148px));
+        width: min(120px, calc(100vw - 156px));
     }
 
     .brand {
