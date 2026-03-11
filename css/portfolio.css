@@ -47,8 +47,8 @@
 
 .hero-proof-card {
     display: grid;
-    gap: 14px;
-    padding: 16px;
+    gap: 16px;
+    padding: 24px;
     border-radius: var(--radius-2xl);
     min-width: 0;
 }
@@ -92,21 +92,21 @@
 }
 
 .featured-section {
-    padding-top: 30px;
+    padding-top: 48px;
 }
 
 .flagship-case,
 .secondary-featured-grid,
 .project-library-grid {
     display: grid;
-    gap: 14px;
+    gap: 20px;
 }
 
 .flagship-shell {
     display: grid;
     grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1.18fr);
-    gap: 14px;
-    padding: 14px;
+    gap: 24px;
+    padding: 24px;
     border-radius: var(--radius-2xl);
 }
 
@@ -116,7 +116,7 @@
 
 .flagship-body {
     display: grid;
-    gap: 10px;
+    gap: 14px;
     align-content: start;
     min-width: 0;
 }
@@ -192,8 +192,8 @@
 .teaser-card {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 14px;
+    gap: 16px;
+    padding: 20px;
     border-radius: var(--radius-xl);
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     align-content: start;
@@ -227,14 +227,14 @@
 }
 
 .project-library-section {
-    padding-top: 40px;
+    padding-top: 56px;
 }
 
 .library-overview {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 16px;
-    margin-bottom: 12px;
+    gap: 10px 20px;
+    margin-bottom: 16px;
 }
 
 .library-stat {
@@ -261,7 +261,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .filter-chip {
@@ -303,14 +303,14 @@
 
 .project-library-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 16px;
 }
 
 .library-card {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    gap: 10px;
-    padding: 14px;
+    gap: 14px;
+    padding: 22px;
     border-radius: var(--radius-xl);
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     min-width: 0;
@@ -372,14 +372,14 @@
 }
 
 .method-section {
-    padding-top: 24px;
+    padding-top: 48px;
 }
 
 .method-strip {
     display: grid;
     grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
-    gap: 14px;
-    padding: 14px;
+    gap: 28px;
+    padding: 32px;
     border-radius: var(--radius-2xl);
 }
 
@@ -393,12 +393,12 @@
 .method-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    gap: 16px;
 }
 
 .method-card {
     display: grid;
-    gap: 6px;
+    gap: 10px;
 }
 
 .method-card h3 {
@@ -636,15 +636,23 @@
         grid-template-columns: 1fr;
     }
 
-    .flagship-shell,
-    .teaser-card,
-    .library-card,
-    .method-strip {
-        padding: 14px;
+    .flagship-shell {
+        padding: 18px;
+        gap: 18px;
     }
 
     .teaser-card {
-        gap: 10px;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .library-card {
+        padding: 18px;
+    }
+
+    .method-strip {
+        padding: 24px;
+        gap: 20px;
     }
 }
 

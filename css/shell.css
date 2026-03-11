@@ -163,8 +163,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
-    padding: 28px 30px;
+    gap: 32px;
+    padding: 36px 40px;
     border-radius: var(--radius-2xl);
 }
 
@@ -188,15 +188,15 @@
 }
 
 .site-footer {
-    padding: 10px 0 40px;
+    padding: 24px 0 48px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.2fr auto auto;
-    gap: 24px;
+    gap: 32px;
     align-items: end;
-    padding-top: 28px;
+    padding-top: 36px;
     border-top: 1px solid var(--line);
 }
 
@@ -403,7 +403,7 @@
     }
 
     .cta-panel {
-        padding: 26px;
+        padding: 28px;
     }
 }
 

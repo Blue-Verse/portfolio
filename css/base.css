@@ -148,7 +148,7 @@ section[id] {
 }
 
 .section {
-    padding: 68px 0;
+    padding: 88px 0;
 }
 
 .compact {
@@ -166,8 +166,8 @@ section[id] {
 
 .section-head {
     display: grid;
-    gap: 8px;
-    margin-bottom: 18px;
+    gap: 12px;
+    margin-bottom: 36px;
 }
 
 .section-head h2 {
@@ -259,7 +259,11 @@ section[id] {
     }
 
     .section {
-        padding: 60px 0;
+        padding: 72px 0;
+    }
+
+    .section-head {
+        margin-bottom: 28px;
     }
 }
 
@@ -269,7 +273,11 @@ section[id] {
     }
 
     .section {
-        padding: 48px 0;
+        padding: 56px 0;
+    }
+
+    .section-head {
+        margin-bottom: 24px;
     }
 
     .section-head h2 {
