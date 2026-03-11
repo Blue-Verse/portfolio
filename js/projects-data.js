@@ -84,7 +84,7 @@ export const PROJECTS = [
         sector: "피트니스",
         market: "한국",
         period: "4개월",
-        status: "구축 완료",
+        status: "운영 반영",
         featured: false,
         summary: "지점 운영과 회원 관리, 수업 예약, 결제, 커뮤니티를 통합한 프랜차이즈 운영 서비스입니다.",
         challenge: "여러 지점과 강사, 회원의 일정과 결제를 동시에 다루면서 운영자 대시보드까지 함께 설계해야 했습니다.",
